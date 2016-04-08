@@ -6,7 +6,7 @@ var express = require('express');
 module.exports = function(app, io){
 
 	// Set .html as the default template extension
-	app.set('view engine', 'html');
+	app.set('view engine', 'ejs');
 
 	// Initialize the ejs template engine
 	app.engine('html', require('ejs').renderFile);
@@ -16,5 +16,6 @@ module.exports = function(app, io){
 
 	// Make the files in the public folder available to the world
 	app.use(express.static(__dirname + '/public'));
+    app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 };

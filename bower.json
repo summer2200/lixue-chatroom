@@ -1,0 +1,19 @@
+{
+  "name": "node-chatroom",
+  "version": "0.0.0",
+  "homepage": "https://github.com/summer2200/node-chatroom",
+  "authors": [
+    "vmeng <verymeng@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "toastr": "~2.1.2"
+  }
+}

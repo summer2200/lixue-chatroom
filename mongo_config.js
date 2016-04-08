@@ -6,6 +6,8 @@ var url = 'mongodb://localhost:27017/lixu-chatroom';
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to server");
-
+  if (!GLOBAL.logger){
+    GLOBAL.mongoDB = db;
+  }
   db.close();
 });
