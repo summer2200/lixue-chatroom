@@ -13,7 +13,7 @@ module.exports = function(app,io){
 
 	app.get('/', function(req, res){
 
-		// Render views/home.html
+		// Render views/home.ejs
 		res.render('home');
 	});
 
@@ -26,11 +26,21 @@ module.exports = function(app,io){
 		res.redirect('/chat/'+id);
 	});
 
+	app.get('/sign-in', function(req, res){
+		res.render('signIn');
+	})
+
+	app.get('/sign-up', function(req, res){
+		res.render('signUp');
+	})
+
+
 	app.get('/chat/:id', function(req,res){
 
 		// Render the chant.html view
 		res.render('chat');
 	});
+
 
 	// Initialize a new socket.io application, named 'chat'
 	var chat = io.on('connection', function (socket) {
