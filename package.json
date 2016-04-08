@@ -19,6 +19,7 @@
     "gravatar": "~1.0.6",
     "jade": "^1.11.0",
     "mongodb": "^2.1.16",
+    "mongoose": "^4.4.11",
     "socket.io": "1.0.6"
   }
 }

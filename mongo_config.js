@@ -9,5 +9,5 @@ MongoClient.connect(url, function(err, db) {
   if (!GLOBAL.logger){
     GLOBAL.mongoDB = db;
   }
-  db.close();
+  // db.close();
 });

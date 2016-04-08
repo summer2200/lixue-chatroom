@@ -4,7 +4,7 @@
 
 // Use the gravatar module, to turn email addresses into avatar images:
 
-var gravatar = require('gravatar');
+var gravatar = require('gravatar'), assert = require('assert');;
 
 // Export a function, so that we can pass
 // the app and io instances from the app.js file:
@@ -28,15 +28,24 @@ module.exports = function(app,io){
 
 	app.get('/sign-in', function(req, res){
 		res.render('signIn');
-	})
+	});
+
+	app.post('/sign-up', function(req, res){
+		// res.render('signUp', {up:'success'});
+		insertDocument({name:'viki', password: '123', email:'ab@12.com'}, 'users', function(result){
+
+		});
+		res.redirect('/sign-in');
+	});
 
 	app.get('/sign-up', function(req, res){
 		res.render('signUp');
-	})
+	});
+
 
 
 	app.get('/chat/:id', function(req,res){
-GLOBAL.mongoDB.
+
 		// Render the chant.html view
 		res.render('chat');
 	});
@@ -166,11 +175,12 @@ function findClientsSocket(io,roomId, namespace) {
 	return res;
 }
 
-var insertDocuments = function(doc, collectionName, callback) {
+var insertDocument = function(doc, collectionName, callback) {
   // Get the documents collection
+  console.log(GLOBAL.mongoDB)
   var collection = GLOBAL.mongoDB.collection(collectionName);
   // Insert some documents
-  collection.insertMany(doc, function(err, result) {
+  collection.insertOne(doc, function(err, result) {
     assert.equal(err, null);
     assert.equal(3, result.result.n);
     assert.equal(3, result.ops.length);
