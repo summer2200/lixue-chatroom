@@ -6,7 +6,7 @@
 
 var gravatar = require('gravatar');
 
-// Export a function, so that we can pass 
+// Export a function, so that we can pass
 // the app and io instances from the app.js file:
 
 module.exports = function(app,io){
@@ -36,7 +36,7 @@ module.exports = function(app,io){
 
 
 	app.get('/chat/:id', function(req,res){
-
+GLOBAL.mongoDB.
 		// Render the chant.html view
 		res.render('chat');
 	});
@@ -45,7 +45,7 @@ module.exports = function(app,io){
 	// Initialize a new socket.io application, named 'chat'
 	var chat = io.on('connection', function (socket) {
 
-		// When the client emits the 'load' event, reply with the 
+		// When the client emits the 'load' event, reply with the
 		// number of people in this chat room
 
 		socket.on('load',function(data){
@@ -166,4 +166,29 @@ function findClientsSocket(io,roomId, namespace) {
 	return res;
 }
 
+var insertDocuments = function(doc, collectionName, callback) {
+  // Get the documents collection
+  var collection = GLOBAL.mongoDB.collection(collectionName);
+  // Insert some documents
+  collection.insertMany(doc, function(err, result) {
+    assert.equal(err, null);
+    assert.equal(3, result.result.n);
+    assert.equal(3, result.ops.length);
+    console.log("Inserted  documents into the " + collectionName +" collection");
+    callback(result);
+  });
+};
+
+var findDocuments = function(doc, collectionName, callback) {
+  // Get the documents collection
+  var collection = GLOBAL.mongoDB.collection(collectionName);
+  // Find some documents
+  collection.find(doc).toArray(function(err, docs) {
+    assert.equal(err, null);
+    assert.equal(2, docs.length);
+    console.log("Found the following records");
+    console.dir(docs);
+    callback(docs);
+  });
+};
 
