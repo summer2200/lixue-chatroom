@@ -4,8 +4,8 @@
 
 // Use the gravatar module, to turn email addresses into avatar images:
 
-var gravatar = require('gravatar'), assert = require('assert');;
-
+var gravatar = require('gravatar'), assert = require('assert');
+var UserItem = require('./models/userItem');
 // Export a function, so that we can pass
 // the app and io instances from the app.js file:
 
@@ -32,10 +32,23 @@ module.exports = function(app,io){
 
 	app.post('/sign-up', function(req, res){
 		// res.render('signUp', {up:'success'});
-		insertDocument({name:'viki', password: '123', email:'ab@12.com'}, 'users', function(result){
-
+		var userItem = new UserItem();
+		var body = req.body;
+console.log(body)
+		Object.keys(body).forEach(function(key){
+		  userItem[key.replace('[]','')] = body[key];
 		});
-		res.redirect('/sign-in');
+		userItem.save(function(err, doc){
+		  if(err){
+		    res.json({status: err});
+		  }else{
+		  	res.redirect('/sign-in');
+		  }
+		});
+		// insertDocument({name:'viki', password: '123', email:'ab@12.com'}, 'users', function(result){
+			// res.redirect('/sign-in');
+		// });
+
 	});
 
 	app.get('/sign-up', function(req, res){

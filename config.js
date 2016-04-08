@@ -2,6 +2,7 @@
 // It is required by app.js
 
 var express = require('express');
+var bodyParser = require('body-parser');
 
 module.exports = function(app, io){
 
@@ -17,5 +18,10 @@ module.exports = function(app, io){
 	// Make the files in the public folder available to the world
 	app.use(express.static(__dirname + '/public'));
     app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
+    app.use( bodyParser.json() );       // to support JSON-encoded bodies
+    app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+      extended: true
+    }));
 
 };
