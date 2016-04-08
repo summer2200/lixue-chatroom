@@ -1,4 +1,4 @@
-// This is the main file of our chat app. It initializes a new 
+// This is the main file of our chat app. It initializes a new
 // express.js instance, requires the config and routes files
 // and listens on a port. Start the application by running
 // 'node app.js' in your terminal
@@ -11,7 +11,7 @@ var express = require('express'),
 
 var port = process.env.PORT || 8080;
 
-// Initialize a new socket.io object. It is bound to 
+// Initialize a new socket.io object. It is bound to
 // the express app, which allows them to coexist.
 
 var io = require('socket.io').listen(app.listen(port));
@@ -21,5 +21,5 @@ var io = require('socket.io').listen(app.listen(port));
 
 require('./config')(app, io);
 require('./routes')(app, io);
-
+require('./mongo_config');
 console.log('Your application is running on http://localhost:' + port);
