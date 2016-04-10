@@ -4,6 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
 
 module.exports = function(app, io){
