@@ -27,14 +27,15 @@ module.exports = function(app,io){
 	});
 
 	app.get('/sign-in', function(req, res){
-		res.render('signIn');
+		// res.render('signIn');
+		res.redirect('/personalPage');
 	});
 
 	app.post('/sign-up', function(req, res){
 		// res.render('signUp', {up:'success'});
 		var userItem = new UserItem();
 		var body = req.body;
-console.log(body)
+		console.log(body)
 		Object.keys(body).forEach(function(key){
 		  userItem[key.replace('[]','')] = body[key];
 		});
@@ -54,6 +55,10 @@ console.log(body)
 	app.get('/sign-up', function(req, res){
 		res.render('signUp');
 	});
+
+	// app.get('/personal-page', function(req, res){
+	// 	res.render('/personal-page');
+	// });
 
 
 
