@@ -3,8 +3,10 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
-var LocalStrategy = require('passport-local');
+
 
 module.exports = function(app, io) {
 
@@ -26,6 +28,20 @@ module.exports = function(app, io) {
         extended: true
     }));
 
+    app.use(session({ resave: true, saveUninitialized: true, secret: 'keyboard cat', cookie: {maxAge: 60000} }));
+
+    // passport
+    passport.use(new LocalStrategy(
+      function(username, password, done) {
+        User.findOne({ username: username }, function (err, user) {
+          if (err) { return done(err); }
+          if (!user) { return done(null, false); }
+          if (!user.verifyPassword(password)) { return done(null, false); }
+          return done(null, user);
+        });
+      }
+    ));
+    
     app.use(passport.initialize());
     app.use(passport.session());
 
