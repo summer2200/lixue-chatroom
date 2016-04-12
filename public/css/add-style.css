@@ -1,0 +1,19 @@
+@media all and (max-width:1190px) and (min-width:100px) {
+    #ftr-large-add {
+        display: none !important;
+    }
+}
+
+.add-wrapper-db {
+    text-align: center;
+    color: rgb(203, 203, 203);
+    line-height: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 12px;
+    background-color: rgb(223, 223, 223);
+}
+
+.add-wrapper-db .add-block {
+    padding: 5px;
+}

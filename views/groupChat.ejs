@@ -1,98 +1,84 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-
 	<title>group chat</title>
 
 	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-
-
 </head>
-
 <body>
-
 	<header class="banner">
-
 		<h1 class="bannertext">
 			<a href="" id="logo">group chat</a>
 		</h1>
-
 	</header>
+	            <div class=" col-lg-6 col-md-6 col-sm-6 divide-bar">
+                <div class="chat-box-div">
+                    <div class="chat-box-head">
+                        GROUP CHAT HISTORY
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="fa fa-cogs"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="fa fa-map-marker"></span>&nbsp;Invisible</a></li>
+                                    <li><a href="#"><span class="fa fa-comments-o"></span>&nbsp;Online</a></li>
+                                    <li><a href="#"><span class="fa fa-lock"></span>&nbsp;Busy</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-circle-o-notch"></span>&nbsp;Logout</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="panel-body chat-box-main">
+                        <div class="chat-box-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-left">
+                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-right">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-right">
+                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
+                            - Romin Royeelin
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-left">
+                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-right">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-right">
+                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
+                            - Romin Royeelin
+                        </div>
+                        <hr class="hr-clas" />
+                    </div>
+                    <div class="chat-box-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Text Here...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
 
+                </div>
 
-	<section class="section">
-
-		
-
-		<div class="personinside">
-
-			<img src="../img/unnamed.jpg" id="ownerImage" />
-
-			<div class="infoInside">
-				<h2>Chat with <span class="nickname-chat"></span></h2>
-				<br/>
-
-				<form class="loginForm">
-					<input type="text" id="hisName" placeholder="Your nick name" /><br/>
-					<input type="text" id="hisEmail" placeholder="Your email address" /><br/>
-					<input type="submit" id="hisEnter" value="CHAT" />
-				</form>
-
-			</div>
-
-		</div>
-
-		<div class="invite-textfield">
-
-			<h2>Oops, there are no other people in this chat!</h2>
-			<h5>Invite friends by sending them this URL</h5>
-
-			<div class="link">
-				<a title="Invite a friend" href="" id="link"></a>
-			</div>
-
-		</div>
-
-		<div class="left">
-
-			<img src="../img/unnamed.jpg" id="leftImage" />
-
-			<div class="info">
-				<h2><span class="nickname-left"></span> has left this chat.</h2>
-				<h5>Invite somebody else by sending them this page.</h5>
-			</div>
-
-		</div>
-
-		<div class="toomanypeople">
-
-			<h2>Oops, you can not join this chat!</h2>
-			<h5>There are already two people in it. Would you like to create a <a title="New Room" href="/create" id="room">new room</a>?</h5>
-
-		</div>
-
-		<div class="nomessages">
-
-			<img src="../img/unnamed.jpg" id="noMessagesImage" />
-
-			<div class="info">
-				<h2>You are chatting with <span class="nickname-chat"></span>.</h2>
-				<h5>Send them a message from the form below!</h5>
-			</div>
-
-		</div>
-
-		<div class="chatscreen">
-
-			<ul class="chats">
-				<!-- The chat messages will go here -->
-			</ul>
-
-		</div>
-
-	</section>
+            </div>
 
 	<footer>
 
