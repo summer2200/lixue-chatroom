@@ -36,14 +36,14 @@ module.exports = function(app, io) {
 
     app.post('/sign-in', urlencodedParser, function(req, res) {
         if (!req.body) {
-        	return res.sendStatus(400);
-        } 
+            return res.sendStatus(400);
+        }
         // res.send('welcome, ' + req.body.username)
         res.redirect('/personal-page');
     })
 
     app.get('/personal-page', function(req, res) {
-    	res.render('personalPage');
+        res.render('personalPage');
     });
 
     app.post('/sign-up', function(req, res) {
@@ -74,6 +74,9 @@ module.exports = function(app, io) {
     // app.get('/personal-page', function(req, res){
     // 	res.render('/personal-page');
     // });
+    app.get('/create-group', function(req, res) {
+        res.render('createGroup');
+    });
 
 
 
