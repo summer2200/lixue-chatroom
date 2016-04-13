@@ -19,24 +19,26 @@
     <![endif]-->
   </head>
   <body>
+    <div class="container">
+    	<div>
+    		<h1 class="panel-heading">Welcome! Please Sign Up Here.</h1>
+      </div>
+      <div class="col-xs-6">
+  		<form class="panel-body signUpForm" method="post" action="/sign-up">
+  			User Name <input type= "text" placeholder="your name" class="col-xs-12 " name="name" id="userName"></input><br/>
+        email <input type="email" placeholder="your email address" class="col-xs-12" name="email" id="email"></input><br/>
+  			Password <input type="password" placeholder="password" class="col-xs-12" name="password" id="password"></input><br/>
+  			confirm Password<input type="password" placeholder="confirm your password" class="col-xs-12" id="confirmPassword"></input><br/>
 
-  	<div>
-  		<h1 class="panel-heading">Welcome! Please Sign Up Here.</h1>
-    </div>
-    <div class="col-xs-6">
-		<form class="panel-body signUpForm" method="post" action="/sign-up">
-			User Name <input type= "text" placeholder="your name" class="col-xs-12 " name="name"></input><br/>
-			Password <input type="password" placeholder="password" class="col-xs-12"></input><br/>
-			confirm Password<input type="password" placeholder="confirm your password" class="col-xs-12"></input><br/>
-			email <input type="email" placeholder="your email address" class="col-xs-12"></input>
-      <button type="submit" class="btn btn-lg btn-success col-xs-6">Sign Up</button>
-		</form>
+        <button type="submit" class="btn btn-lg btn-success col-xs-6" id="signUpButton">Sign Up</button>
+  		</form>
 
-	</div>
-
+  	</div>
+  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/user.js"></script>
   </body>
 </html>
