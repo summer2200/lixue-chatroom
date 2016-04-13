@@ -31,8 +31,21 @@ $(function() {
         return true;
     });
 
+    var signinForm = $('.form-signin'),
+    	signInUserName = $('#signInUserName'),
+    	inputPassword = $('#inputPassword');
 
-
+    signinForm.on('submit', function(e) {
+    	if(signInUserName.val() === ""){
+    		alert('please input a user name');
+    		return false;
+    	}
+    	if(inputPassword.val() === ''){
+        	alert('Please input password');
+        	return false;
+        }
+        return true;
+    });
 
     function scrollToBottom() {
         $("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 1000);

@@ -39,8 +39,17 @@ module.exports = function(app, io) {
             return res.sendStatus(400);
         }
         // res.send('welcome, ' + req.body.username)
-        res.redirect('/personal-page');
-    })
+        var username = req.body.username;
+        var password = req.body.password;
+        UserItem.findOne({name: username, password:password},function (err,result) {
+        	if(result){
+        		res.redirect('/personal-page');
+        	}else{
+        		res.redirect('/sign-in');
+        	}
+        });
+
+    });
 
     app.get('/personal-page', function(req, res) {
         res.render('personalPage');
