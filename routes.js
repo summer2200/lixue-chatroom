@@ -31,7 +31,7 @@ module.exports = function(app, io) {
     });
 
     app.get('/sign-in', function(req, res) {
-        res.render('signIn');
+        res.render('signIn',{msg:''});
     });
 
     app.post('/sign-in', urlencodedParser, function(req, res) {
@@ -45,7 +45,7 @@ module.exports = function(app, io) {
         	if(result){
         		res.redirect('/personal-page');
         	}else{
-        		res.redirect('/sign-in');
+        		res.render('signIn',{msg: 'user name or password error'});
         	}
         });
 

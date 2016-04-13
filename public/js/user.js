@@ -33,7 +33,9 @@ $(function() {
 
     var signinForm = $('.form-signin'),
     	signInUserName = $('#signInUserName'),
-    	inputPassword = $('#inputPassword');
+    	inputPassword = $('#inputPassword'),
+    	msg = $('#msg');
+    msg.fadeOut(1000);
 
     signinForm.on('submit', function(e) {
     	if(signInUserName.val() === ""){
