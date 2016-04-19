@@ -43,11 +43,12 @@ module.exports = function(app, io) {
         // res.send('welcome, ' + req.body.username)
         var email = req.body.email;
         var password = req.body.password;
-        var username = req.body.username;
+        // var username = req.body.username;
         UserItem.findOne({ email: email, password: password}, function(err, result) {
             if (result) {
-                // res.redirect('/personal-page');
-                res.write(req.cookie[username]);
+                res.cookie('username', result.name);
+                res.redirect('/personal-page');
+                // res.write(req.cookie[username]);
 
             } else {
                 res.render('signIn', { msg: 'user email or password error' });
@@ -56,8 +57,9 @@ module.exports = function(app, io) {
 
     });
 
-    app.get('/personal-page', function(req, res) {
-        res.render('personalPage');
+    app.get('/personal-page', function(req, res) {        
+        console.log("Cookies: ", req.cookies);
+        res.render('personalPage', {userName: req.cookies.username});
     });
 
 
