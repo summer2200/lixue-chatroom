@@ -5,6 +5,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var expressLayouts = require('express-ejs-layouts');
 var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
 
@@ -23,6 +24,7 @@ module.exports = function(app, io) {
     // Make the files in the public folder available to the world
     app.use(express.static(__dirname + '/public'));
     app.use('/bower_components', express.static(__dirname + '/bower_components'));
+    app.use(express.query());
 
     app.use(bodyParser.json()); // to support JSON-encoded bodies
     app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
@@ -30,6 +32,8 @@ module.exports = function(app, io) {
     }));
 
     app.use(session({ resave: true, saveUninitialized: true, secret: 'keyboard cat', cookie: {maxAge: 60000} }));
+
+    app.use(expressLayouts);
 
     // passport
     passport.use(new LocalStrategy(
@@ -42,7 +46,7 @@ module.exports = function(app, io) {
         });
       }
     ));
-    
+
     app.use(passport.initialize());
     app.use(passport.session());
 
