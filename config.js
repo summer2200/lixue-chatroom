@@ -49,5 +49,6 @@ module.exports = function(app, io) {
 
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(cookieParser());
 
 };

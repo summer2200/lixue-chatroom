@@ -9,7 +9,9 @@ var gravatar = require('gravatar'),
 var UserItem = require('./models/userItem');
 var passport = require('passport');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var session = require('express-session');
 // Export a function, so that we can pass
 // the app and io instances from the app.js file:
 
@@ -31,7 +33,7 @@ module.exports = function(app, io) {
     });
 
     app.get('/sign-in', function(req, res) {
-        res.render('signIn',{msg:''});
+        res.render('signIn', { msg: '' });
     });
 
     app.post('/sign-in', urlencodedParser, function(req, res) {
@@ -39,14 +41,17 @@ module.exports = function(app, io) {
             return res.sendStatus(400);
         }
         // res.send('welcome, ' + req.body.username)
-        var username = req.body.username;
+        var email = req.body.email;
         var password = req.body.password;
-        UserItem.findOne({name: username, password:password},function (err,result) {
-        	if(result){
-        		res.redirect('/personal-page');
-        	}else{
-        		res.render('signIn',{msg: 'user name or password error'});
-        	}
+        var username = req.body.username;
+        UserItem.findOne({ email: email, password: password}, function(err, result) {
+            if (result) {
+                // res.redirect('/personal-page');
+                res.write(req.cookie[username]);
+
+            } else {
+                res.render('signIn', { msg: 'user email or password error' });
+            }
         });
 
     });
@@ -54,6 +59,7 @@ module.exports = function(app, io) {
     app.get('/personal-page', function(req, res) {
         res.render('personalPage');
     });
+
 
     app.post('/sign-up', function(req, res) {
         // res.render('signUp', {up:'success'});
@@ -80,14 +86,9 @@ module.exports = function(app, io) {
         res.render('signUp');
     });
 
-    // app.get('/personal-page', function(req, res){
-    // 	res.render('/personal-page');
-    // });
     app.get('/create-group', function(req, res) {
         res.render('createGroup');
     });
-
-
 
     app.get('/chat/:id', function(req, res) {
 
@@ -146,22 +147,16 @@ module.exports = function(app, io) {
         // When the client emits 'login', save his name and avatar,
         // and add them to the room
         socket.on('login', function(data) {
-
             var room = findClientsSocket(io, data.id);
             // Only two people per room are allowed
             if (room.length < 2) {
-
                 // Use the socket object to store data. Each client gets
                 // their own unique socket object
-
                 socket.username = data.user;
                 socket.room = data.id;
                 socket.avatar = gravatar.url(data.avatar, { s: '140', r: 'x', d: 'mm' });
-
                 // Tell the person what he should use for an avatar
                 socket.emit('img', socket.avatar);
-
-
                 // Add the client to the room
                 socket.join(data.id);
 
@@ -175,10 +170,8 @@ module.exports = function(app, io) {
 
                     avatars.push(room[0].avatar);
                     avatars.push(socket.avatar);
-
                     // Send the startChat event to all the people in the
                     // room, along with a list of people that are in it.
-
                     chat.in(data.id).emit('startChat', {
                         boolean: true,
                         id: data.id,
