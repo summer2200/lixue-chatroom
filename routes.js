@@ -43,8 +43,9 @@ module.exports = function(app, io) {
         // res.send('welcome, ' + req.body.username)
         var email = req.body.email;
         var password = req.body.password;
+
         // var username = req.body.username;
-        UserItem.findOne({ email: email, password: password}, function(err, result) {
+        UserItem.findOne({ email: email, password: password }, function(err, result) {
             if (result) {
                 res.cookie('username', result.name);
                 res.redirect('/personal-page');
@@ -57,9 +58,10 @@ module.exports = function(app, io) {
 
     });
 
-    app.get('/personal-page', function(req, res) {        
+    app.get('/personal-page', function(req, res) {
+        var date = new Date();
         console.log("Cookies: ", req.cookies);
-        res.render('personalPage', {userName: req.cookies.username});
+        res.render('personalPage', { userName: req.cookies.username, date: date});
     });
 
 
