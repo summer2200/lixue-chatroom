@@ -28,7 +28,8 @@
             <div class="col-lg-12 col-md-12 col-sm-12 divide-bar">
                 <div class="chat-box-new-div">
                     <div class="chat-box-new-head">
-                        <span class="pull-left"><%= userName %></span>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="pull-left"><b><i><%= userName %></i></b></span>
                         <span>Messages</span>
                         <span class="pull-right">2016-4-7 18:12</span>
                     </div>
@@ -52,98 +53,14 @@
                         <hr class="hr-clas-low" />
                     </div>
             </div>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div id="navbar" class="navbar-collapse collapse bottombar">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#recently" rel="recently">Recently Chats</a>
-                </li>
-                <li>
-                    <a href="#friends" rel="friends">Friends</a>
-                </li>
-                <li>
-                    <a href="#groups" rel="groups">Groups</a>
-                </li>
-            </ul>  
-          </div><!--/.nav-collapse -->
 
-          <a href="/create-group">create a group chat</a>
-        </div><!--/.container-fluid -->
-    </nav>
-
-            <!-- <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="chat-box-online-div">
-                    <div class="chat-box-online-head">
-                        ONLINE USERS (120)
-                    </div>
-                    <div class="panel-body chat-box-online">
-
-                        <div class="chat-box-online-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                            <br />
-                            ( <small>Active from 3 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-
-                        <div class="chat-box-online-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Romin Royeelin
-                            <br />
-                            ( <small>Active from 10 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-                        <div class="chat-box-online-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                            <br />
-                            ( <small>Active from 3 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-
-                        <div class="chat-box-online-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Romin Royeelin
-                            <br />
-                            ( <small>Active from 10 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-                        <div class="chat-box-online-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                            <br />
-                            ( <small>Active from 3 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-
-                        <div class="chat-box-online-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Romin Royeelin
-                            <br />
-                            ( <small>Active from 10 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-                        <div class="chat-box-online-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                            <br />
-                            ( <small>Active from 3 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-
-                        <div class="chat-box-online-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Romin Royeelin
-                            <br />
-                            ( <small>Active from 10 hours</small> )
-                        </div>
-                        <hr class="hr-clas-low" />
-                    </div>
-
-                </div>
-
-            </div> -->            
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group"> 
+                <a href="#recently" rel="recently" class="btn btn-default" role="button">Recently Chats</a> 
+                <a href="#friends" rel="friends" class="btn btn-default" role="button">Friends</a> 
+                <a href="#groups" rel="groups" class="btn btn-default" role="button">Groups</a> 
+            </div>
+            <a href="/create-group"><span class="glyphicon glyphicon-user"></span>create a group chat</a>
+            <a href="/search"><span class="glyphicon glyphicon-plus"></span>add new firend</a>
         </div>
     </div>
 </body>
