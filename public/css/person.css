@@ -10427,3 +10427,7 @@ not all {
 .inbox1 {
     vertical-align: center;
 }
+.delete-friend {
+    margin-top: 10px;
+    margin-left: 5px;
+}
