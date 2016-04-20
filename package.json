@@ -19,7 +19,6 @@
     "ejs": "^1.0.0",
     "express": "^4.8.2",
     "express-ejs-layouts": "^2.1.0",
-    "express-partial": "^0.1.0",
     "express-session": "^1.13.0",
     "gravatar": "~1.0.6",
     "jade": "^1.11.0",

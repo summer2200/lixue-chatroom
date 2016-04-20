@@ -1,0 +1,6 @@
+#searchResults{
+    margin-top: 20px;
+}
+#searchResults li{
+    cursor: pointer;
+}

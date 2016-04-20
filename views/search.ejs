@@ -1,14 +1,23 @@
+<link rel='stylesheet' href="css/search.css"></link>
 <div>
 	<h3>Looking for a new friend</h3>
 </div>
 
 <div class="col-lg-6">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Search for..." id="searchText">
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Search</button>
+        <button class="btn btn-default" type="button" id="searchButton">Search</button>
       </span>
     </div>
 </div>
+<% if(typeof(users) != 'undefined') {%>
 
+
+<%} %>
+<div class="row">
+    <ul class="list-group" id="searchResults">
+
+    </ul>
+</div>
 <script src="../js/user.js"></script>

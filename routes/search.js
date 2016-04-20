@@ -8,11 +8,12 @@ module.exports = function(app) {
     });
 
     app.post('/search', function(req, res) {
-        var userName = req.userName;
 
-        UserItem.find({name: userName},function(users) {
+        var userName = new RegExp(req.body.userName, 'i');
 
-            res.json('search', {users: users});
+        UserItem.find({name: userName},function(err, users) {
+
+            res.status(200).json( users);
         })
         // Render views/home.ejs
 
