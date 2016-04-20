@@ -1,4 +1,4 @@
-
+var UserItem = require('./models/userItem');
 
 module.exports = function(app) {
     app.get('/search', function(req, res) {
@@ -8,8 +8,13 @@ module.exports = function(app) {
     });
 
     app.post('/search', function(req, res) {
+        var userName = req.userName;
 
+        UserItem.find({name: userName},function(users) {
+
+            res.json('search', {users: users});
+        })
         // Render views/home.ejs
-        res.render('search');
+
     });
 }

@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='css/style.css' />
+  <link rel='stylesheet' href='css/stylesheet.css' />
   <link rel='stylesheet' href="/bower_components/bootstrap/dist/css/bootstrap.css"></link>
 
   <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% if( typeof(title) != 'undefined'){ %>
+        <title><%= title %></title>
+    <%} %>
+
 </head>
 
 <body>
@@ -15,4 +22,5 @@
       <%- body %>
     </div>
 </body>
+<script type="text/javascript" src="js/public.js"></script>
 </html>
