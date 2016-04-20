@@ -95,7 +95,7 @@ function addFriend(id, name){
             //     alert(name+' is your friend now !');
             // } ;
             // setTimeout('wait()', 1000);
-            window.location.href = '/personal-page#pane2';
+            window.location.href = '/personal-page#pane2?name='+name;
         }
     })
 }
