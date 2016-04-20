@@ -26,9 +26,24 @@
             <!-- <h3 class="panel-title">Panel title</h3> -->
             <span class="glyphicon glyphicon-user"></span>
             <span class="pull-left"><b><i><%= userName %></i></b></span>
-            Inbox <span class="badge">42</span>
+            <span class="inbox1">Inbox <span class="badge">42</span></span>
             <span class="pull-right"><%= date %></span>
         </div>
+<div class="btn-group col-xs-12">
+  <button type="button" class="btn btn-default dropdown-toggle col-xs-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-plus" click=""></span>
+  </button>
+  <ul class="dropdown-menu col-xs-12">
+    <li><a href="/search">Add a new friend</a></li>
+    <li><a href="#">Create a new group chat</a></li>
+  </ul>
+</div>
+
+
+
+
+
+
         <div class="panel-body">
             <div class="tabbable cont">
                 <div class="tab-content contents">
@@ -64,9 +79,9 @@
                     </div>
                 </div>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#pane1" data-toggle="tab">Recently</a></li>
-                    <li><a href="#pane2" data-toggle="tab">Friends</a></li>
-                    <li><a href="#pane3" data-toggle="tab">Groups</a></li>
+                    <li class="active col-xs-4"><a href="#pane1" data-toggle="tab">Recently</a></li>
+                    <li class="col-xs-4"><a href="#pane2 " data-toggle="tab">Friends</a></li>
+                    <li class="col-xs-4"><a href="#pane3" data-toggle="tab">Groups</a></li>
                 </ul>
             </div>
         </div>

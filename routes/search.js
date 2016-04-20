@@ -1,4 +1,4 @@
-var UserItem = require('./models/userItem');
+var UserItem = require('../models/userItem');
 
 module.exports = function(app) {
     app.get('/search', function(req, res) {
