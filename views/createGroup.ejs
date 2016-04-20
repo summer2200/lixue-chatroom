@@ -1,3 +1,28 @@
-<html>
-<span> Create a new group chat</span>
-</html>
+<script src="../js/user.js">
+</script>
+<div class="well">
+    <h2> Create a new group chat</h2>
+    <form>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" placeholder="Group Name">
+            <br>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Find from your friends list">
+                <span class="input-group-btn">
+        			<button class="btn btn-default" type="button">ADD</button>
+      			</span>
+            </div>
+            <br>
+            <!-- /input-group -->
+            <h4><span class="label label-success">friend 1<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
+            <h4><span class="label label-success">friend 2<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
+            <br>
+            <textarea rows="5" cols="20" class="form-control" placeholder="Write some description about your group"></textarea>
+            <br>
+            <button type="button" class="btn btn-default btn-lg">
+                Done <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+        </div>
+        <!-- /.col-lg-6 -->
+    </form>
+</div>
