@@ -71,25 +71,30 @@ $(function() {
             $('#searchResults').text('no result find');
         }
         data.forEach(function(user){
-            var li = '<li class="list-group-item" id='+user._id+' onclick="addFriend(\''+user._id+'\',\''+user.name+'\')">'+ user.name+'</li>';
+            var li = '<li class="list-group-item" id='+user._id+' onclick="addFriend(\''+user._id+'\',\''+user.name+'\')">'+ user.name+'<span class="glyphicon glyphicon-plus pull-right"></span></li>';
             $('#searchResults').append(li);
         })
     }
 
 });
 
+            
+
 function addFriend(id, name){
-    alert(id)
+    // alert(id)
     $.post('/add-friend', {userName: name},function(data){
         console.log(data);
-        if(data == 'sign-in'){
+        if(data !== 'sign-in'){
             alert('you are not sigin, please sign first');
             window.location.href = '/sign-in'
         }else{
-            alert('add '+name+' to your friends');
+            alert('Do you want to add '+name+' to your friends list ?');
             $('#'+id).remove();
+            alert(name+' is your friend now !');
+            // function wait() {
+            //     alert(name+' is your friend now !');
+            // } ;
+            // setTimeout('wait()', 1000);
         }
-
-
     })
 }
