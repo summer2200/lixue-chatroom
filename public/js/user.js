@@ -86,7 +86,7 @@ function addFriend(id, name){
         console.log(data);
         if(data !== 'sign-in'){
             alert('you are not sigin, please sign first');
-            window.location.href = '/sign-in'
+            window.location.href = '/sign-in';
         }else{
             alert('Do you want to add '+name+' to your friends list ?');
             $('#'+id).remove();
@@ -95,6 +95,7 @@ function addFriend(id, name){
             //     alert(name+' is your friend now !');
             // } ;
             // setTimeout('wait()', 1000);
+            window.location.href = '/personal-page#pane2';
         }
     })
 }
