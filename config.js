@@ -8,6 +8,7 @@ var session = require('express-session');
 var expressLayouts = require('express-ejs-layouts');
 var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
+var dateFormat = require('dateformat');
 
 
 module.exports = function(app, io) {
@@ -50,5 +51,6 @@ module.exports = function(app, io) {
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(cookieParser());
+    app.use(dateFormat);
 
 };

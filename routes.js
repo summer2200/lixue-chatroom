@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var session = require('express-session');
+var dateFormat = require('dateformat');
 // Export a function, so that we can pass
 // the app and io instances from the app.js file:
 
@@ -59,7 +60,8 @@ module.exports = function(app, io) {
     });
 
     app.get('/personal-page', function(req, res) {
-        var date = new Date();
+        var now = new Date();
+        var date = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
         console.log("Cookies: ", req.cookies);
         res.render('personalPage', { userName: req.cookies.username, date: date});
     });

@@ -1,66 +1,74 @@
-
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
     <title>Personal Homepage</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <!-- FONT AWESOME  CSS -->
     <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/person.css" rel="stylesheet" />
-
-    <script src="../js/personalPage.js" type="text/script"></script>
-    <script src="http://www.designbootstrap.com/track/ga.js"  type="text/script"></script>
-    <script src="bower_components/jquery/dist/jquery.js" type="text/script"></script>
+    <link href="../css/stylesheets.css" rel="stylesheet" />
+    <script src="http://www.designbootstrap.com/track/ga.js" type="text/script"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js" type="text/script"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 divide-bar">
-                <div class="chat-box-new-div">
-                    <div class="chat-box-new-head">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <span class="pull-left"><b><i><%= userName %></i></b></span>
-                        <span>Messages</span>
-                        <span class="pull-right"><%= date %></span>
-                    </div>
-                    
-                    <div  class="tab-content panel-body chat-box-new recently" style="display: block;">
-                        <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                        <span id="">Group 1</span>                         
-                        <hr class="hr-clas-low" />
-                        <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                        Romin                             
-                        <hr class="hr-clas-low" />
-                    </div>
-                    <div id="friends" class="tab-content panel-body chat-box-new">
-                        <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                        Romin       
-                        <hr class="hr-clas-low" />
-                    </div>
-                    <div id="groups" class="tab-content panel-body chat-box-new">
-                        <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                        <span>Group 1</span>                                                
-                        <hr class="hr-clas-low" />
-                    </div>
-            </div>
 
-            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group"> 
-                <a href="#recently" rel="recently" class="btn btn-default" role="button">Recently Chats</a> 
-                <a href="#friends" rel="friends" class="btn btn-default" role="button">Friends</a> 
-                <a href="#groups" rel="groups" class="btn btn-default" role="button">Groups</a> 
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <!-- <h3 class="panel-title">Panel title</h3> -->
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="pull-left"><b><i><%= userName %></i></b></span>
+            Inbox <span class="badge">42</span>
+            <span class="pull-right"><%= date %></span>
+        </div>
+        <div class="panel-body">
+            <div class="tabbable cont">
+                <div class="tab-content contents">
+                    <div id="pane1" class="tab-pane active">
+                        <h4>recent chats</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Name1 history1</li>
+                            <li class="list-group-item">Name2 history2</li>
+                            <li class="list-group-item">Name3 history3</li>
+                            <li class="list-group-item">Name4 history4</li>
+                            <li class="list-group-item">Name5 history5</li>
+                        </ul>
+                    </div>
+                    <div id="pane2" class="tab-pane">
+                        <h4>your friends</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Friend1 history1</li>
+                            <li class="list-group-item">Friend2 history2</li>
+                            <li class="list-group-item">Friend3 history3</li>
+                            <li class="list-group-item">Friend4 history4</li>
+                            <li class="list-group-item">Friend5 history5</li>
+                        </ul>
+                    </div>
+                    <div id="pane3" class="tab-pane">
+                        <h4>your groups</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Group1 history1</li>
+                            <li class="list-group-item">Group2 history2</li>
+                            <li class="list-group-item">Group3 history3</li>
+                            <li class="list-group-item">Group4 history4</li>
+                            <li class="list-group-item">Group5 history5</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#pane1" data-toggle="tab">Recently</a></li>
+                    <li><a href="#pane2" data-toggle="tab">Friends</a></li>
+                    <li><a href="#pane3" data-toggle="tab">Groups</a></li>
+                </ul>
             </div>
-            <a href="/create-group"><span class="glyphicon glyphicon-user"></span>create a group chat</a>
-            <a href="/search"><span class="glyphicon glyphicon-plus"></span>add new firend</a>
         </div>
     </div>
 </body>
