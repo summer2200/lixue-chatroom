@@ -64,15 +64,32 @@ $(function() {
             $('#searchButton').trigger('click');
         }
     })
+
     function drewSearchResult(data){
         $('#searchResults').empty();
         if(data.length == 0){
             $('#searchResults').text('no result find');
         }
         data.forEach(function(user){
-            var li = '<li class="list-group-item" id='+user._id+' on-click="addFriend('+user.name+')">'+ user.name+'</li>';
+            var li = '<li class="list-group-item" id='+user._id+' onclick="addFriend(\''+user._id+'\',\''+user.name+'\')">'+ user.name+'</li>';
             $('#searchResults').append(li);
         })
     }
 
 });
+
+function addFriend(id, name){
+    alert(id)
+    $.post('/add-friend', {userName: name},function(data){
+        console.log(data);
+        if(data == 'sign-in'){
+            alert('you are not sigin, please sign first');
+            window.location.href = '/sign-in'
+        }else{
+            alert('add '+name+' to your friends');
+            $('#'+id).remove();
+        }
+
+
+    })
+}

@@ -59,6 +59,31 @@ module.exports = function(app, io) {
 
     });
 
+    app.post('/add-friend', function(req, res){
+        var name = req.body.userName;
+        // UserItem.update({name: name}, {friends: []}, function(err, numberAffected, rawResponse){
+
+        // })
+        var currentName = res.cookie.username;
+        console.log(currentName)
+        // currentName = 'zhang'
+        if(currentName == undefined) {
+            res.json('sign-in');
+            return;
+        }
+        UserItem.findOne({name: currentName}, function(err, result){
+            if(typeof(result['friends']) == 'undefined'){
+                result.friends = [];
+            }
+            result.friends.push(name);
+            result.save(function(err){
+                if(!err){
+                    res.status(200).json('success');
+                }
+            });
+        })
+    });
+
     app.get('/personal-page', function(req, res) {
         var now = new Date();
         var date = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
