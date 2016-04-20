@@ -121,6 +121,11 @@ module.exports = function(app, io) {
         res.render('createGroup');
     });
 
+    app.get('/p2p-chat', function(req, res) {
+        res.render('p2pChat');
+    });
+
+
     app.get('/chat/:id', function(req, res) {
 
         // Render the chant.html view
