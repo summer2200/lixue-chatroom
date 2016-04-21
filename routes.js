@@ -34,7 +34,7 @@ module.exports = function(app, io) {
     });
 
     app.get('/sign-in', function(req, res) {
-        res.render('signIn', { msg: '' });
+        res.render('signIn', { msg: '', title:'Sign In' });
     });
 
     app.post('/sign-in', urlencodedParser, function(req, res) {
@@ -49,6 +49,7 @@ module.exports = function(app, io) {
         UserItem.findOne({ email: email, password: password }, function(err, result) {
             if (result) {
                 res.cookie('username', result.name);
+                console.log(res.cookie['username'])
                 res.redirect('/personal-page');
                 // res.write(req.cookie[username]);
 
@@ -64,7 +65,7 @@ module.exports = function(app, io) {
         // UserItem.update({name: name}, {friends: []}, function(err, numberAffected, rawResponse){
 
         // })
-        var currentName = res.cookie.username;
+        var currentName = req.cookies.username;
         console.log(currentName)
         // currentName = 'zhang'
         if(currentName == undefined) {

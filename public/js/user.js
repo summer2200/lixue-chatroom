@@ -78,13 +78,13 @@ $(function() {
 
 });
 
-            
+
 
 function addFriend(id, name){
     // alert(id)
     $.post('/add-friend', {userName: name},function(data){
         console.log(data);
-        if(data !== 'sign-in'){
+        if(data == 'sign-in'){
             alert('you are not sigin, please sign first');
             window.location.href = '/sign-in';
         }else{
