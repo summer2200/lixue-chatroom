@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "toastr": "~2.1.2",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "font-awesome": "~4.6.1"
   }
 }
