@@ -1,68 +1,49 @@
 <!DOCTYPE html>
-
 <!-- 	
 	This file is rendered by express.js, when the home url of the chat is opened in a browser.
 	It doesn't do much, except showing the create button for the chat.
  -->
-
 <html>
 
 <head>
-
-	<title>Create a new chat room! | Tutorialzine Demo</title>
-
-	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-
-
+    <title>Lixue Chatroom</title>
+    <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-
-	<header class="homebanner">
-
-			<h1 class="homebannertext">
-				<a href="http://tutorialzine.com/2014/03/nodejs-private-webchat/" id="logo">Tutorial<span>zine</span></a>
+<body background="img/home1.jpg">
+    <div class="homebanner row">
+        <h1 class="homebannertext col-xs-4">
+				<a href="/" id="logo">Li Xue<span> Chatroom</span></a>
 			</h1>
-
-	</header>
-
-	<section>
-
-		<div class="homesection">
-
-			<div class="node">
-				<img src="img/nodejslogo.png" alt="nodelogo" id="nodelogo"/>
-				<h2 id="chat">powered web chat</h2>
-			</div>
-
-			<a title="Create" href="/create" id="create">
+        <a title="signIn" href="/sign-in" id="signIn" class="homesignin col-xs-2">
+            <button type="button" class="btn btn-success">Sign In</button>
+        </a>
+    </div>
+    <section>
+        <div class="homesection">
+            <div class="node">
+                <img src="img/homeIcon.png" alt="homelogo" id="homelogo" />
+                <h2 id="chat">Start chatting here, make new fiends, make your life more interesting.</h2>
+            </div>
+            <!-- <a title="Create" href="/create" id="create">
 				<div id="createbutton">
 					<div id="little">Create a Private</div>
 					<div id="big">CHAT ROOM!</div>
 				</div>
-			</a>
-
-			<a title="signUp" href="/sign-up" id="signUp">
-				<div id="signUpButton">
-					<div id="little">Sign Up</div>
-				</div>
-			</a>
-
-			<a title="signIn" href="/sign-in" id="signIn">
-				<div id="signInButton">
-					<div id="little">Sign In</div>
-				</div>
-			</a>
-
-			<div class="tutorial">
-				<a title="Download the source code." href="http://tutorialzine.com/2014/03/nodejs-private-webchat/" id="tutorial">
-					or download a copy of the source code here
-				</a>
-			</div>
-		</div>
-
-	</section>
-
+			</a> -->
+            <div class="homesignup">
+                <span class="signintext">Don't have an account? Sign up here.</span>
+                <a title="signUp" href="/sign-up" id="signUp">
+                    <div id="signUpButton">
+                        <button type="button" class="btn mids"><span>Sign Up</span></button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+ 
+        <span class="hfooter">2016-4-21 copyright summer.li<span>
+	
 </body>
 </html>

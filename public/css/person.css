@@ -1358,7 +1358,8 @@ figure {
 }
 
 img {
-    vertical-align: middle;
+    margin-top: 10px;
+
 }
 
 .img-responsive {
@@ -2345,43 +2346,6 @@ pre code {
 .pre-scrollable {
     -ms-overflow-y: scroll;
     max-height: 340px;
-}
-
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-@media all and (min-width:768px) {
-    .container {
-        width: 750px;
-    }
-}
-
-@media all and (min-width:992px) {
-    .container {
-        width: 970px;
-    }
-}
-
-@media all and (min-width:1200px) {
-    .container {
-        width: 1170px;
-    }
-}
-
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
 }
 
 table {
@@ -9909,16 +9873,6 @@ not all {
     content: " ";
 }
 
-.row::before {
-    display: table;
-    content: " ";
-}
-
-.row::after {
-    display: table;
-    content: " ";
-}
-
 .form-horizontal .form-group::before {
     display: table;
     content: " ";
@@ -10035,9 +9989,6 @@ not all {
     clear: both;
 }
 
-.row::after {
-    clear: both;
-}
 
 .form-horizontal .form-group::after {
     clear: both;
@@ -10430,4 +10381,12 @@ not all {
 .delete-friend {
     margin-top: 10px;
     margin-left: 5px;
+}
+
+.container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
 }

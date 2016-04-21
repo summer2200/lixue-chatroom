@@ -65,8 +65,8 @@ module.exports = function(app, io) {
         // UserItem.update({name: name}, {friends: []}, function(err, numberAffected, rawResponse){
 
         // })
-        var currentName = req.cookies.username;
-        console.log(currentName)
+        var currentName = res.cookie.username;
+        console.log(currentName);
         // currentName = 'zhang'
         if(currentName == undefined) {
             res.json('sign-in');

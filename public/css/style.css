@@ -2,10 +2,6 @@ body {
     font-family: Verdana;
 }
 
-.row {
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
 
 .hr-clas {
     border-top-color: rgb(216, 216, 216);

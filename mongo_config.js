@@ -23,7 +23,7 @@ var mongoHost = process.env.MONGODB_HOST || 'localhost';
 var mongoUser = process.env.MONGODB_USER || '';
 var mongoPassword = process.env.MONGODB_PASSWORD || '';
 var mongoPort = process.env.MONGODB_PORT || '27017';
-var mongoName = process.env.MONGODB_NAME || 'lixu-chatroom';
+var mongoName = process.env.MONGODB_NAME || 'lixue-chatroom';
 var mongoUrl = 'mongodb://'+mongoUser+ ':' + mongoPassword +'@'+ mongoHost +':' + mongoPort+'/' + mongoName;
 mongoUrl = mongoUrl.replace(':@','');
 console.log(mongoUrl)
