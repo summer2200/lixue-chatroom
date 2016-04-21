@@ -581,18 +581,15 @@ footer {
 }
 
 #chatform {
-    width: 700px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
     background-color: white;
 }
 
 #message {
-    width: 550px;
-    height: 80px;
     display: block;
     float: left;
     margin: 0 auto;
-    background-color: #f9f9f9;
     border: 1px solid #cccccc;
     border-radius: 2px;
     padding-left: 20px;
@@ -603,7 +600,6 @@ footer {
 }
 
 #submit {
-    width: 110px;
     height: 60px;
     float: right;
     text-align: center;
@@ -691,4 +687,10 @@ footer {
 .hfooter {
     margin-bottom: 10px;
     color: white;
+}
+.chatwell {
+    margin-bottom: o;
+}
+.mcontent {
+    list-style-type:none;
 }
