@@ -97,5 +97,18 @@ function addFriend(id, name){
             // setTimeout('wait()', 1000);
             window.location.href = '/personal-page#pane2?name='+name;
         }
-    })
+    });
+}
+
+function getMyFriends(callback){
+    // alert(id)
+    $.post('/my-friends', function(data){
+
+        if(data == 'sign-in'){
+            alert('you are not sigin, please sign first');
+            window.location.href = '/sign-in';
+        }else{
+            callback(data);
+        }
+    });
 }

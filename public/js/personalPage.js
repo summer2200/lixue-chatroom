@@ -8,7 +8,16 @@ $(function() {
         var name = split[1].split('=')[1];
 
         $('#myTabs a[href="' + pannel + '"]').tab('show'); // Select tab by name
-        $("#pane2").append('<li><a href="/p2p-chat"><span class="tab">' + name + '</span></a></li>');
+
+        if(pannel === '#pane2'){
+            getMyFriends(function (data) {
+                $('#pane2 ul').empty();
+                data.forEach(function(name){
+                    $("#pane2 ul").append('<li class="list-group-item"><a href="/p2p-chat"><span class="tab">' + name + '</span></a></li>');
+                });
+            });
+        }
+
     }
 
 });

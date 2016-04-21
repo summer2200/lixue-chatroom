@@ -85,6 +85,23 @@ module.exports = function(app, io) {
         })
     });
 
+    app.post('/my-friends', function(req, res){
+        var currentName = req.cookies.username;
+        console.log(currentName);
+        // currentName = 'zhang'
+        if(currentName == undefined) {
+            res.json('sign-in');
+            return;
+        }
+        UserItem.findOne({name: currentName}, function(err, result){
+            if(typeof(result.friends) == 'undefined'){
+                result.friends = [];
+            }
+
+            res.status(200).json(result.friends);
+        });
+    });
+
     app.get('/personal-page', function(req, res) {
         var now = new Date();
         var date = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
