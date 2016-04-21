@@ -24,6 +24,8 @@ module.exports = function(app, io) {
 
     // Make the files in the public folder available to the world
     app.use(express.static(__dirname + '/public'));
+    //font-awesomeidoes not contain some fonts, so use the bootstrap fonts 
+    app.use('/fonts', express.static(__dirname + '/bower_components/bootstrap/fonts'));
     app.use('/bower_components', express.static(__dirname + '/bower_components'));
     app.use(express.query());
 
