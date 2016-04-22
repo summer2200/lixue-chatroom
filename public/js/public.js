@@ -35,3 +35,4 @@ toastr.options = {
 };
 
 var onlineUsers = [];
+var socket = io();

@@ -87,9 +87,16 @@ module.exports = function(app, io) {
           //向所有用户广播该用户上线信息
           io.sockets.emit('online', {users: users, user: data.user});
         });
+
         // Somebody left the chat
         socket.on('disconnect', function() {
-
+            //若 users 对象中保存了该用户名
+              if (users[socket.name]) {
+                //从 users 对象中删除该用户名
+                delete users[socket.name];
+                //向其他所有用户广播该用户下线信息
+                socket.broadcast.emit('offline', {users: users, user: socket.name});
+              }
             // Notify the other person in the chat room
             // that his partner has left
 
@@ -102,6 +109,8 @@ module.exports = function(app, io) {
 
             // leave the room
             socket.leave(socket.room);
+
+
         });
 
 
