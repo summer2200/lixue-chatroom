@@ -17,15 +17,15 @@ console.log(tabValue)
 
 
     $("#friendsTab").click(function() {
-        drawMyFriendsList();
+        drawMyFriendsList(onlineUsers);
     });
 
 
-    function drawMyFriendsList() {
+    function drawMyFriendsList(onlines) {
         getMyFriends(function(data) {
             $('#pane2 ul').empty();
             data.forEach(function(user) {
-                var isOnline = onlineUsers.includes(user.name);
+                var isOnline = onlines.indexOf(user.name) > -1;
                 var status = '<span>Offline</span>';
                 if (isOnline) {
                     status = '<span>Online</span>';
@@ -54,7 +54,7 @@ console.log(tabValue)
         toastr.info(sys);
 
         if (pannel === '#pane2') {
-            drawMyFriendsList();
+            drawMyFriendsList(onlineUsers);
         }
         //刷新用户在线列表
         // flushUsers(data.users);
@@ -69,6 +69,6 @@ function startP2Pchat(e, id, name, isOnline){
         alert('Can\'t talk with Offline friends');
         return;
     }
-    socket.emit('p2pchat', { user: fromUser });
+    socket.emit('p2pchat', { user: name });
 }
 

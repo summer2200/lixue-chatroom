@@ -36,3 +36,20 @@ toastr.options = {
 
 var onlineUsers = [];
 var socket = io();
+
+socket.on('p2pchat', function(data){
+  //显示系统消息
+  alert(12)
+  var sys = '';
+  onlineUsers = Object.keys(data.users);
+  if (data.user != fromUser) {
+      sys = '<div style="color:#f00">系统(' + now() + '):' + '用户 ' + data.user + ' 上线了！</div>';
+  } else {
+      sys = '<div style="color:#f00">系统(' + now() + '):你进入了聊天室！</div>';
+  }
+  toastr.info(sys);
+
+  if (pannel === '#pane2') {
+      drawMyFriendsList();
+  }
+});

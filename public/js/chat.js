@@ -3,8 +3,13 @@
 $(function(){
 
 	// getting the id of the room from the url
-	// var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
-id=100
+	if(window.location.pathname.match(/\/chat\/(\d+)$/)){
+		var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
+	}else{
+		var id = 100;
+	}
+
+
 	// connect to the socket
 	var socket = io();
 
@@ -177,9 +182,6 @@ id=100
 
 	});
 
-	socket.on('p2pchat', function(data){
-
-	});
 
 	socket.on('offline', function (data) {
 	  //显示系统消息
