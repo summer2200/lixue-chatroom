@@ -50,6 +50,7 @@ module.exports = function(app, io) {
         UserItem.findOne({ email: email, password: password }, function(err, result) {
             if (result) {
                 res.cookie('username', result.name);
+                res.cookie('userId', result._id);
                 console.log(res.cookie['username'])
                 res.redirect('/personal-page');
                 // res.write(req.cookie[username]);
