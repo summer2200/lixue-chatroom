@@ -33,3 +33,5 @@ toastr.options = {
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 };
+
+var onlineUsers = [];
