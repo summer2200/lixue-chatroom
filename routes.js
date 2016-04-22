@@ -13,6 +13,7 @@ var cookieParser = require('cookie-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var session = require('express-session');
 var dateFormat = require('dateformat');
+var _ = require('underscore');
 // Export a function, so that we can pass
 // the app and io instances from the app.js file:
 
@@ -78,6 +79,31 @@ module.exports = function(app, io) {
             }
             console.log(userInfo)
             result.friends.push(userInfo);
+            result.save(function(err){
+                if(!err){
+                    res.status(200).json('success');
+                }
+            });
+        });
+    });
+
+    app.delete('/delete-friend', function(req, res){
+        var friendId = req.body.friendId;
+        var currentName = req.cookies.username;
+        console.log(currentName);
+        // currentName = 'zhang'
+        if(currentName == undefined) {
+            res.json('sign-in');
+            return;
+        }
+        UserItem.findOne({name: currentName}, function(err, result){
+            if(typeof(result['friends']) == 'undefined'){
+                result.friends = [];
+            }
+            console.log(friendId)
+            var index = _.findIndex(result.friends,{id: friendId});
+            console.log(index)
+            if(index > -1) result.friends.splice(index, 1);
             result.save(function(err){
                 if(!err){
                     res.status(200).json('success');

@@ -95,6 +95,26 @@ function addFriend(id, name, email){
         }
     });
 }
+function deleteFriend(id, name){
+    // alert(id)
+    if (confirm('Do you want to delete '+name+' from your friends list ?')){
+        $.ajax({
+            url: '/delete-friend',
+            type: 'DELETE',
+            data: {friendId:id},
+            success: function(result) {
+
+                if(result == 'sign-in'){
+                    alert('you are not sigin, please sign first');
+                    window.location.href = '/sign-in';
+                }else{
+                    $('#pane2 ul '+ '#'+id).remove();
+                    alert(name+' is deleted from friend now !');
+                }
+            }
+        });
+    }
+}
 
 function getMyFriends(callback){
     // alert(id)

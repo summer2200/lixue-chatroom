@@ -186,4 +186,5 @@ body {
 
 .tab-content .glyphicon-remove{
     float: right;
+    cursor: pointer;
 }
