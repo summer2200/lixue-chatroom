@@ -161,11 +161,11 @@ module.exports = function(app, io) {
 
     //logs user out of site, deleting them from the session, and returns to homepage
     app.get('/logout', function(req, res) {
-        var name = req.user.username;
-        console.log("LOGGIN OUT " + req.user.username)
+        var name = req.cookies.username;
+        console.log("LOGGIN OUT " + name);
         req.logout();
         res.redirect('/');
-        req.session.notice = "You have successfully been logged out " + name + "!";
+        res.session.notice = "You have successfully been logged out " + name + "!";
     });
 };
 

@@ -13,10 +13,12 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <!-- <h3 class="panel-title">Panel title</h3> -->
-            <span class="glyphicon glyphicon-user"></span>
-            <span class="pull-left"><b><i><%= userName %></i></b></span>
-            <span class="inbox1">Inbox <span class="badge">42</span></span>
-            <span class="pull-right"><%= date %></span>
+            <span class="glyphicon glyphicon-user pull-left"></span>
+            <span class="col-xs-1"><b><i><%= userName %></i></b></span>
+            <span class="inbox1">Messages<span class="badge">42</span></span>
+            <span class="col-xs-4"><%= date %></span>
+            <button type="button" class="btn btn-default pull-right"><a class="glyphicon glyphicon-off" href="/logout"></a></button>
+            
         </div>
 <div class="btn-group col-xs-12">
   <button type="button" class="btn btn-default dropdown-toggle col-xs-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
