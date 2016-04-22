@@ -61,7 +61,7 @@ module.exports = function(app, io) {
     });
 
     app.post('/add-friend', function(req, res){
-        var name = req.body.userName;
+        var userInfo = req.body.userInfo;
         // UserItem.update({name: name}, {friends: []}, function(err, numberAffected, rawResponse){
 
         // })
@@ -76,7 +76,8 @@ module.exports = function(app, io) {
             if(typeof(result['friends']) == 'undefined'){
                 result.friends = [];
             }
-            result.friends.push(name);
+            console.log(userInfo)
+            result.friends.push(userInfo);
             result.save(function(err){
                 if(!err){
                     res.status(200).json('success');

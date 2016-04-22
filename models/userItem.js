@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
   email  : String,
   password  : String,
 
-  friends: [String],
+  friends: [],
 
   // years: String, //经验
   // salary: [String],

@@ -12,8 +12,9 @@ $(function() {
         if(pannel === '#pane2'){
             getMyFriends(function (data) {
                 $('#pane2 ul').empty();
-                data.forEach(function(name){
-                    $("#pane2 ul").append('<li class="list-group-item"><a href="/p2p-chat"><span class="tab">' + name + '</span></a></li>');
+                data.forEach(function(user){
+                    var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+                    $("#pane2 ul").append('<li class="list-group-item"><a href="/p2p-chat"><span class="tab">' + user.name + '</span></a>' + deleteicon +'</li>');
                 });
             });
         }
