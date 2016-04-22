@@ -3,8 +3,8 @@
 $(function(){
 
 	// getting the id of the room from the url
-	var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
-
+	// var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
+id=100
 	// connect to the socket
 	var socket = io();
 
@@ -174,6 +174,10 @@ $(function(){
 			showMessage("somebodyLeft", data);
 			chats.empty();
 		}
+
+	});
+
+	socket.on('p2pchat', function(data){
 
 	});
 

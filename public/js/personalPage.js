@@ -69,6 +69,6 @@ function startP2Pchat(e, id, name, isOnline){
         alert('Can\'t talk with Offline friends');
         return;
     }
-
+    socket.emit('p2pchat', { user: fromUser });
 }
 
