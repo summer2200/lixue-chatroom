@@ -7,11 +7,14 @@
   <link rel='stylesheet' href='css/style.css' />
   <link rel='stylesheet' href='css/stylesheet.css' />
   <link rel='stylesheet' href="/bower_components/bootstrap/dist/css/bootstrap.css"></link>
+  <link rel='stylesheet' href="/bower_components/toastr/toastr.min.css"></script>
    <link href="../css/person.css" rel="stylesheet" />
   <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css"> -->
 
   <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/bower_components/jquery-cookie/jquery.cookie.js"></script>
   <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/bower_components/toastr/toastr.min.js"></script>
 
     <% if( typeof(title) != 'undefined'){ %>
         <title><%= title %></title>
@@ -24,5 +27,6 @@
       <%- body %>
     </div>
 </body>
+<script src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="js/public.js"></script>
 </html>

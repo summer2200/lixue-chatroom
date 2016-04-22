@@ -1,7 +1,7 @@
 // This file is executed in the browser, when people visit /chat/<random id>
 
 $(function() {
-
+    var socket = io();
     // some more jquery objects
     // register use
     var signUpForm = $(".signUpForm"),
