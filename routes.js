@@ -165,7 +165,6 @@ module.exports = function(app, io) {
         console.log("LOGGIN OUT " + name);
         req.logout();
         res.redirect('/');
-        res.session.notice = "You have successfully been logged out " + name + "!";
     });
 };
 
