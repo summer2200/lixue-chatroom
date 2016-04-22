@@ -2,27 +2,31 @@
 </script>
 <div class="well">
     <h2> Create a new group chat</h2>
-    <form>
-        <div class="col-lg-6">
-            <input type="text" class="form-control" placeholder="Group Name">
+    <!-- <form name="groupForm" class="groupForm"> -->
+        <div class="row">
+            <input type="text" class="form-control" name="gname" id="groupName" placeholder="Group Name" />
             <br>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Find from your friends list">
+                <input type="text" class="form-control" name="find" placeholder="Find from your friends list" />
                 <span class="input-group-btn">
-        			<button class="btn btn-default" type="button">ADD</button>
-      			</span>
+                    <button class="btn btn-default" type="button" name="addButton">ADD</button>
+                </span>
             </div>
             <br>
-            <!-- /input-group -->
-            <h4><span class="label label-success">friend 1<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
-            <h4><span class="label label-success">friend 2<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
+            <div>
+                <ul name="member" id="member">
+                    <li class="mcontent">
+                        <h4><span class="label label-success">friend 1<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
+                    </li>
+                </ul>
+            </div>
+            <textarea rows="5" cols="20" class="form-control" name="description" id="description" placeholder="Write some description about your group"></textarea>
             <br>
-            <textarea rows="5" cols="20" class="form-control" placeholder="Write some description about your group"></textarea>
-            <br>
-            <button type="button" class="btn btn-default btn-lg">
+            <button class="btn btn-default btn-lg" id="doneButton" name="doneButton">
                 Done <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
         </div>
         <!-- /.col-lg-6 -->
-    </form>
+    <!-- </form> -->
 </div>
+ <script src="../js/group.js"></script>

@@ -1,7 +1,7 @@
 
 $(function() {
     var tabValue = window.location.hash;
-
+console.log(tabValue)
     if (tabValue) {
 
         var split = tabValue.split('?');
