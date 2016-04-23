@@ -48,7 +48,9 @@ $(function() {
         $('#pane3 ul').empty();
         getMyGroupCharts(function(results){
             results.forEach(function(result){
-                $("#pane3 ul").append('<li class="list-group-item"><span class="tab">' + result.gname + '</span></li>');
+                console.log(result)
+                var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroupChart(\'' + result._id + '\', \'' + result.gname + '\')"></span>';
+                $("#pane3 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + result.gname + '</span>'+deleteicon+'</li>');
             });
         });
         // data.forEach(function(name) {

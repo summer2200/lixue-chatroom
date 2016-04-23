@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.post('/create-group', function(req, res) {
         var groupItem = new GroupItem();
         var body = req.body;
-        console.log(body)
+
         Object.keys(body).forEach(function(key) {
             groupItem[key] = body[key];
         });
@@ -23,6 +23,24 @@ module.exports = function(app) {
 
     app.get('/create-group', function(req, res) {
         res.render('createGroup');
+    });
+
+    app.delete('/delete-group', function(req, res){
+        var groupId = req.body.groupId;
+        var currentName = req.cookies.username;
+        // currentName = 'zhang'
+        if(currentName === undefined) {
+            res.json('sign-in');
+            return;
+        }
+        GroupItem.findOneAndRemove({_id: groupId}, function(err, result){
+            if(err){
+                res.status(200).json('fail');
+            }else{
+                res.status(200).json('success');
+            }
+
+        });
     });
 
     app.post('/my-groups', function(req, res){

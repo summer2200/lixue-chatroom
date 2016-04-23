@@ -138,6 +138,29 @@ function deleteMember(id, name) {
     // }
 }
 
+function deleteGroupChart(id, name){
+    // alert(id)
+    if (confirm('Do you want to delete '+name+' from your group list ?')){
+        $.ajax({
+            url: '/delete-group',
+            type: 'DELETE',
+            data: {groupId:id},
+            success: function(result) {
+
+                if(result == 'sign-in'){
+                    alert('you are not sigin, please sign first');
+                    window.location.href = '/sign-in';
+                }else if(result == 'success'){
+                    $('#pane3 ul '+ '#'+id).remove();
+                    alert(name+' is deleted from group now !');
+                }else{
+                    toastr.error('delete fail');
+                }
+            }
+        });
+    }
+}
+
 function getMyGroupCharts(callback){
     $.post('/my-groups', function(data){
 
