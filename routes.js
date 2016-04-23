@@ -118,7 +118,7 @@ module.exports = function(app, io) {
         var currentName = req.cookies.username;
         console.log(currentName);
         // currentName = 'zhang'
-        if(currentName == undefined) {
+        if(currentName === undefined) {
             res.json('sign-in');
             return;
         }
@@ -160,27 +160,6 @@ module.exports = function(app, io) {
         res.render('signUp');
     });
 
-    app.post('/create-group', function(req, res) {
-        var groupItem = new GroupItem();
-        var body = req.body;
-        console.log(body)
-        Object.keys(body).forEach(function(key) {
-            groupItem[key] = body[key];
-        });
-        console.log(groupItem);
-        groupItem.save(function(err, doc) {
-            if (err) {
-                res.json({ status: err });
-            } else {
-                res.json({ status: 1, data : doc });
-                // res.redirect('/personal-page');
-            }
-        });
-    });
-
-    app.get('/create-group', function(req, res) {
-        res.render('createGroup');
-    });
 
     app.get('/p2p-chat/:friendName', function(req, res) {
         res.render('p2pChat', {friend:{name:req.params.friendName}});
