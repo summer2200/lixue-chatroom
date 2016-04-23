@@ -20,7 +20,7 @@
     margin-left: 5px;
 }
 
-.container {
+.home.container {
     margin-left: 0;
     margin-right: 0;
     padding-right: 0;
@@ -29,4 +29,8 @@
 }
 .badge {
     margin-left: 10px;
+}
+
+body {
+  height: 100%;
 }

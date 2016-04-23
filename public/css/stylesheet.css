@@ -31,8 +31,8 @@ body {
 .homebannertext {
     text-align: left;
     padding-top: 0;
-    margin-top: 0;
-    margin-left: 20px;
+    margin-top: 15px;
+    /*    margin-left: 20px;*/
     font-family: 'Open Sans Condensed', serif;
     font-weight: bold;
     color: white;
@@ -657,12 +657,15 @@ footer {
     float: right;
 }
 
-.btn-success {
+
+/*.btn-success {
     width: 150px;
-}
+    margin-right: 5px;
+}*/
 
 .homesignup {
     margin-top: 50px;
+    text-align: center;
 }
 
 .signintext {
@@ -682,13 +685,26 @@ footer {
 .mids span {
     color: white;
 }
+
 .hfooter {
-    margin-bottom: 10px;
-    color: white;
+    /*margin-top: 15%;*/
+    text-align: center;
+    color: #DEDEDE;
+    position: fixed;
+    bottom: 0;
 }
+
 .chatwell {
     margin-bottom: o;
 }
+
 .mcontent {
-    list-style-type:none;
+    list-style-type: none;
+}
+
+#homelogo {
+    margin-top: 13px;
+}
+.gotosignin {
+    padding-left: 0;
 }
