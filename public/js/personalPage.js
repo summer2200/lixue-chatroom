@@ -1,7 +1,6 @@
-
 $(function() {
     var tabValue = window.location.hash;
-console.log(tabValue)
+    console.log(tabValue)
     if (tabValue) {
 
         var split = tabValue.split('?');
@@ -9,13 +8,13 @@ console.log(tabValue)
         var name = split[1].split('=')[1];
 
         $('#myTabs a[href="' + pannel + '"]').tab('show'); // Select tab by name
-
-        // if (pannel === '#pane2') {
-        //     drawMyFriendsList();
-        // }
+        console.log(name)
+            // if (pannel === '#pane2') {
+            //     drawMyFriendsList();
+            // }
     }
 
-
+    //add new friend's name to the friend list
     $("#friendsTab").click(function() {
         drawMyFriendsList(onlineUsers);
     });
@@ -34,6 +33,22 @@ console.log(tabValue)
                 $("#pane2 ul").append('<li class="list-group-item" id="' + user.id + '"><a href="/p2p-chat/' + user.name +'" onclick="startP2Pchat(event,\'' + user.id + '\', \''+user.name+'\','+ isOnline +')"><span class="tab">' + user.name + '</span></a>' + '(' + status + ')' + deleteicon + '</li>');
             });
         });
+    }
+    //add new group's name to the group list
+    $("#groupsTab").click(function() {
+        // console.log(name)
+        drawMyGroupsList(name);
+    });
+
+
+    function drawMyGroupsList(name) {
+        $('#pane3 ul').empty();
+        console.log(name)
+        // data.forEach(function(name) {
+            // var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroup(\'' + group.id + '\', \'' + group.name + '\')"></span>';
+            // $("#pane3 ul").append('<li class="list-group-item" id="' + group.id + '"><a href="/group-chat" onclick="startGroupChat(event,\'' + group.id + '\', \'' + group.name + '\')"><span class="tab">' + group.name + '</span></a>' + '(' + status + ')' + deleteicon + '</li>');
+            $("#pane3 ul").append('<li class="list-group-item"><span class="tab">' + name + '</span></li>');
+        // });
     }
 
 
@@ -63,12 +78,11 @@ console.log(tabValue)
     });
 });
 
-function startP2Pchat(e, id, name, isOnline){
-    if(!isOnline){
+function startP2Pchat(e, id, name, isOnline) {
+    if (!isOnline) {
         e.preventDefault();
         alert('Can\'t talk with Offline friends');
         return;
     }
     socket.emit('p2pchat', { user: name });
 }
-
