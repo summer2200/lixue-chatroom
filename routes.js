@@ -182,8 +182,8 @@ module.exports = function(app, io) {
         res.render('createGroup');
     });
 
-    app.get('/p2p-chat', function(req, res) {
-        res.render('p2pChat');
+    app.get('/p2p-chat/:friendName', function(req, res) {
+        res.render('p2pChat', {friend:{name:req.params.friendName}});
     });
 
 
