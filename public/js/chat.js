@@ -119,13 +119,15 @@ $(function() {
         if (user === currentUser.name) {
             direction = 'pull-right';
             who = 'me';
+            imgg = '/img/male.png';
         } else {
             direction = 'pull-left';
             who = 'you';
+            imgg = '/img/female.png';
         }
 
         //TODO chat update image
-        imgg = '/img/unnamed.jpg';
+        
 
         var li = $(
             '<li class=' + who + '>' +
