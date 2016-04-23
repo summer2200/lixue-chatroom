@@ -7,17 +7,27 @@
             <input type="text" class="form-control" name="gname" id="groupName" placeholder="Group Name" />
             <br>
             <div class="input-group">
-                <input type="text" class="form-control" name="find" placeholder="Find from your friends list" />
+                <input type="text" class="form-control" name="find" id="findFriendInput" placeholder="Find from your friends list" />
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Search</button>
+                    <button class="btn btn-default" type="button" id="findFriendButton">Search</button>
                 </span>
             </div>
-            <br>
+
+            <br/>
+
+                <ul class="list-group" id="searchMyFriendResults">
+
+                </ul>
+
+            <br/>
             <div>
                 <ul name="member" id="member">
                     <li class="mcontent">
-                        <h4><span class="label label-success">friend 1<span class="glyphicon glyphicon-remove delete-friend" click=""></span></span></h4>
+                        <h4>
+
+                        </h4>
                     </li>
+
                 </ul>
             </div>
             <textarea rows="5" cols="20" class="form-control" name="description" id="description" placeholder="Write some description about your group"></textarea>

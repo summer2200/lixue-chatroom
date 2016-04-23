@@ -22,6 +22,7 @@ var io = require('socket.io').listen(app.listen(port));
 require('./config')(app, io);
 require('./routes')(app, io);
 require('./routes/chat_route')(app, io);
+require('./routes/create_group_route')(app);
 require('./routes/search')(app);
 require('./mongo_config');
 console.log('Your application is running on http://localhost:' + port);

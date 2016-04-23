@@ -3,8 +3,10 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var groupSchema = mongoose.Schema({
   gname  : String,
+  owner  : String,
+  ownerId: String,
   description  : String,
-  member: [],
+  members: [],
   created_at    : { type: Date },
   updated_at    : { type: Date },
 });
