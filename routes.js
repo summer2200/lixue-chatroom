@@ -71,7 +71,7 @@ module.exports = function(app, io) {
         var currentName = req.cookies.username;
         console.log(currentName);
         // currentName = 'zhang'
-        if(currentName == undefined) {
+        if(currentName === undefined) {
             res.json('sign-in');
             return;
         }
@@ -79,7 +79,7 @@ module.exports = function(app, io) {
             if(typeof(result['friends']) == 'undefined'){
                 result.friends = [];
             }
-            console.log(userInfo)
+            // console.log(userInfo)
             result.friends.push(userInfo);
             result.save(function(err){
                 if(!err){
