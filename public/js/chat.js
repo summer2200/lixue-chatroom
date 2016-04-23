@@ -9,7 +9,7 @@ $(function() {
         var id = 100;
     }
 
-    //var friend; //this variable comes from p2pchat.js
+    //var friend; //this variable comes from p2pchat.ejs
 
     var currentUser = {
         id: $.cookie('userId'),
@@ -86,14 +86,17 @@ $(function() {
         sys = '<div style="color:#f00">系统(' + now() + '):' + friend.name + '离开了聊天室！</div>';
         toastr.info(sys);
         toggelInput(false);
-        // p2pReconnected();
+        waitForFriendReconnect();
     }
 
     function toggelInput(type) {
         if (type) {
             chatMessageTextarea.attr('disabled', false);
-            chatMessageTextarea.val('对方已经重新连接，又可以开始对话了');
             chatSendBtn.attr('disabled', false);
+            chatMessageTextarea.val('');
+            sys = '<div style="color:#f00">系统(' + now() + '):' + friend.name + '已经重连！</div>';
+            toastr.info(sys);
+
         } else {
             chatMessageTextarea.attr('disabled', true);
             chatMessageTextarea.val('对方已离开聊天室。您无法发送消息');
@@ -101,9 +104,13 @@ $(function() {
         }
     }
 
-    // Function that creates a new chat message
+    function waitForFriendReconnect() {
+    	p2pchatSocket.off('startChat').on('startChat', function(data){
+    		toggelInput(true);
+    	});
+    }
 
-    //TODO beautify css
+    // Function that creates a new chat message
     function createChatMessage(msg, user, imgg, now) {
 
         var direction = '';
@@ -117,7 +124,7 @@ $(function() {
             who = 'you';
         }
 
-        //TODO chat
+        //TODO chat update image
         imgg = '/img/unnamed.jpg';
 
         var li = $(
