@@ -648,9 +648,7 @@ footer {
 }
 
 .chatscreen {
-    display: none;
-    width: 700px;
-    margin: 0 auto 200px;
+    margin: 0 auto 30px;
     overflow: hidden;
 }
 

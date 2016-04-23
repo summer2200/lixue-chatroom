@@ -30,7 +30,7 @@ $(function() {
                     status = '<span>Online</span>';
                 }
                 var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteFriend(\'' + user.id + '\', \'' + user.name + '\')"></span>';
-                $("#pane2 ul").append('<li class="list-group-item" id="' + user.id + '"><a href="/p2p-chat" onclick="startP2Pchat(event,\'' + user.id + '\', \'' + user.name + '\',' + isOnline + ')"><span class="tab">' + user.name + '</span></a>' + '(' + status + ')' + deleteicon + '</li>');
+                $("#pane2 ul").append('<li class="list-group-item" id="' + user.id + '"><a href="/p2p-chat/' + user.name +'" onclick="startP2Pchat(event,\'' + user.id + '\', \''+user.name+'\','+ isOnline +')"><span class="tab">' + user.name + '</span></a>' + '(' + status + ')' + deleteicon + '</li>');
             });
         });
     }
