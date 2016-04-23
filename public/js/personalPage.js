@@ -12,6 +12,9 @@ $(function() {
             // if (pannel === '#pane2') {
             //     drawMyFriendsList();
             // }
+            if (pannel === '#pane3') {
+                drawMyGroupsList();
+            }
     }
 
     //add new friend's name to the friend list
@@ -37,17 +40,21 @@ $(function() {
     //add new group's name to the group list
     $("#groupsTab").click(function() {
         // console.log(name)
-        drawMyGroupsList(name);
+        drawMyGroupsList();
     });
 
 
-    function drawMyGroupsList(name) {
+    function drawMyGroupsList() {
         $('#pane3 ul').empty();
-        console.log(name)
+        getMyGroupCharts(function(results){
+            results.forEach(function(result){
+                $("#pane3 ul").append('<li class="list-group-item"><span class="tab">' + result.gname + '</span></li>');
+            });
+        });
         // data.forEach(function(name) {
             // var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroup(\'' + group.id + '\', \'' + group.name + '\')"></span>';
             // $("#pane3 ul").append('<li class="list-group-item" id="' + group.id + '"><a href="/group-chat" onclick="startGroupChat(event,\'' + group.id + '\', \'' + group.name + '\')"><span class="tab">' + group.name + '</span></a>' + '(' + status + ')' + deleteicon + '</li>');
-            $("#pane3 ul").append('<li class="list-group-item"><span class="tab">' + name + '</span></li>');
+
         // });
     }
 
