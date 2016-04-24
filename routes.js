@@ -132,6 +132,20 @@ module.exports = function(app, io) {
         });
     });
 
+    app.post('/my-chatlist', function(req, res){
+        var currentName = req.cookies.username;
+        var currentId = req.cookies.userId;
+        // currentName = 'zhang'
+        if(currentName === undefined) {
+            res.json('sign-in');
+            return;
+        }
+        ChatItem.find({owner: currentName, ownerId: currentId}, function(err, result){
+
+            res.status(200).json(result);
+        });
+    });
+
     app.get('/personal-page', function(req, res) {
         var now = new Date();
         var date = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");

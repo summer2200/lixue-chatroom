@@ -15,14 +15,27 @@ $(function() {
             if (pannel === '#pane3') {
                 drawMyGroupsList();
             }
+    }else{
+        drawRecentlyList();
     }
-
+    $('#recentlyTab').click(function(){
+        drawRecentlyList();
+    });
     //add new friend's name to the friend list
     $("#friendsTab").click(function() {
         drawMyFriendsList(onlineUsers);
     });
 
-
+    function drawRecentlyList(){
+        $('#pane1 ul').empty();
+        getMyChatList(function(results){
+            results.forEach(function(result){
+                console.log(result)
+                // var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroupChart(\'' + result._id + '\', \'' + result.to + '\')"></span>';
+                $("#pane1 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + result.to + '</span>'+''+'</li>');
+            });
+        });
+    }
     function drawMyFriendsList(onlines) {
         getMyFriends(function(data) {
             $('#pane2 ul').empty();
