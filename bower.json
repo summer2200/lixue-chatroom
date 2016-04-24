@@ -1,11 +1,10 @@
 {
-  "name": "node-chatroom",
+  "name": "lixue-chatroom",
   "version": "0.0.0",
-  "homepage": "https://github.com/summer2200/node-chatroom",
-  "authors": [
-    "vmeng <verymeng@gmail.com>"
-  ],
   "license": "MIT",
+  "authors": [
+    "lixue <lixue8029@126.com>"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",

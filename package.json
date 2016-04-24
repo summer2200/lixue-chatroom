@@ -1,17 +1,17 @@
 {
-  "name": "NodeChatSystem",
-  "version": "0.0.1",
-  "description": "Realtime chat system for Tutorialzine.com",
+  "name": "lixueChatroom",
+  "version": "0.0.0",
+  "description": "lixue chatroom",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [
     "node",
     "chat",
-    "system"
+    "socket.io"
   ],
-  "author": "Nikolay Anastasov",
+  "author": "summer2200",
   "license": "MIT",
   "dependencies": {
     "async": "^1.5.2",
