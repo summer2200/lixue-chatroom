@@ -63,7 +63,7 @@ $(function() {
             results.forEach(function(result){
                 console.log(result)
                 var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroupChart(\'' + result._id + '\', \'' + result.gname + '\')"></span>';
-                $("#pane3 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + result.gname + '</span>'+deleteicon+'</li>');
+                $("#pane3 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + '<a href="/group-chat/' + result.gname + '">' + result.gname + '</a>'+ '</span>'+deleteicon+'</li>');
             });
         });
         // data.forEach(function(name) {

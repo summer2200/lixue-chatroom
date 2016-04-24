@@ -481,7 +481,6 @@ body {
     overflow: hidden;
 }
 
-
 /* ------ Chat Screen ------ */
 
 .image {
@@ -581,6 +580,28 @@ body {
     padding-top: 4px;
 }
 
+/* ------------ group chat styles ------------ */
+.group-chat header.banner {
+    margin-bottom: 20px;
+}
+
+.group-chat .group-member-list img {
+    height: 40px;
+    weight: 40px;
+}
+
+.group-chat .group-member-list .member {
+    margin-top: 10px;
+}
+.group-chat .group-member-list .member-name {
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.group-chat #chat-message-form img {
+    height: 50px;
+    weight: 50px;
+}
 
 /* ------------ Footer styles ------------ */
 

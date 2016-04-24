@@ -186,10 +186,10 @@ module.exports = function(app, io) {
     });
 
 
-    app.get('/chat/:id', function(req, res) {
+    app.get('/group-chat/:id', function(req, res) {
 
         // Render the chant.html view
-        res.render('chat');
+        res.render('groupChat', {group:{id:req.params.id}});
     });
 
     //sends the request through our local signup strategy, and if successful takes user to homepage, otherwise returns then to signin page

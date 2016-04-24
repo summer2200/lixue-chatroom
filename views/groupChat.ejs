@@ -1,101 +1,44 @@
-<html>
-<head>
-	<title>group chat</title>
-
-	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-</head>
-<body>
-	<header class="banner">
-		<h1 class="bannertext">
-			<a href="" id="logo">group chat</a>
-		</h1>
-	</header>
-	            <div class=" col-lg-6 col-md-6 col-sm-6 divide-bar">
-                <div class="chat-box-div">
-                    <div class="chat-box-head">
-                        GROUP CHAT HISTORY
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="fa fa-cogs"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="fa fa-map-marker"></span>&nbsp;Invisible</a></li>
-                                    <li><a href="#"><span class="fa fa-comments-o"></span>&nbsp;Online</a></li>
-                                    <li><a href="#"><span class="fa fa-lock"></span>&nbsp;Busy</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#"><span class="fa fa-circle-o-notch"></span>&nbsp;Logout</a></li>
-                                </ul>
-                            </div>
-                    </div>
-                    <div class="panel-body chat-box-main">
-                        <div class="chat-box-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="chat-box-name-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                        </div>
-                        <hr class="hr-clas" />
-                        <div class="chat-box-right">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="chat-box-name-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            - Romin Royeelin
-                        </div>
-                        <hr class="hr-clas" />
-                        <div class="chat-box-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="chat-box-name-left">
-                            <img src="../img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
-                            -  Justine Goliyad
-                        </div>
-                        <hr class="hr-clas" />
-                        <div class="chat-box-right">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="chat-box-name-right">
-                            <img src="../img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-                            - Romin Royeelin
-                        </div>
-                        <hr class="hr-clas" />
-                    </div>
-                    <div class="chat-box-footer">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter Text Here...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-info" type="button">SEND</button>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
+<div class="group-chat">
+    <header class="banner">
+        <h1 class="bannertext">
+            <a href="" id="logo">Group Chat</a>
+        </h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="group-member-list col-sm-2">
 
             </div>
+            <!-- the same panel on p2pchat.ejs -->
+            <div class="chatting col-sm-8">
+                <div class="chatscreen row">
+                    <ul class="chats col-sm-9 col-sm-push-1">
+                        <!-- The chat messages will go here -->
+                    </ul>
+                </div>
+                <div class="row">
+                    <form id="chat-message-form">
+                        <div class="col-sm-1"><img src="/img/male.png"></div>
+                        <div class="col-sm-9">
+                            <textarea class="form-control chat-message-textarea" placeholder="Write something.." rows=3></textarea>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="submit" class="form-control btn-primary chat-message-submit" value="SEND" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<footer>
+<script type="text/javascript">
+    //TODO chat graceful way to get params?
+    var group = {
+        id: '<%= group.id %>'
+    };
+</script>
 
-		<form id="chatform">
-
-			<textarea id="message" placeholder="Write something.."></textarea>
-			<input type="submit" id="submit" value="SEND"/>
-
-		</form>
-
-	</footer>
-
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="../js/moment.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="../js/chat.js"></script>
-
-</body>
-
-</html>
+<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../js/group-chat.js"></script>

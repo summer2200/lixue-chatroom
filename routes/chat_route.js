@@ -38,8 +38,8 @@ module.exports = function(app, io) {
     });
 
     //use namespace for modularity between user socket and chat socket
-    var p2pchatNamespace = '/p2pchat'; 
-    var p2pchat = io.of('/p2pchat');
+    var p2pchatNamespace = '/p2pchat';
+    var p2pchat = io.of(p2pchatNamespace);
     p2pchat.on('connection', function(socket){
         console.log('p2p connection');
 
@@ -93,6 +93,68 @@ module.exports = function(app, io) {
             socket.broadcast.to(socket.room).emit('receive', { msg: data.msg, user: data.user, img: data.img });
         });
     });
+
+    var groupChatNamespace = '/groupchat';
+    var groupchat = io.of(groupChatNamespace);
+    groupchat.on('connection', function(socket) {
+        console.log('group connected');
+
+        //save connected client info to room
+        //broadcast member list of the room
+        //TODO group chat
+        socket.on('clientConnected', function(data) {
+            // data:{id:roomid, username:username}
+
+            //get member list already in the room
+            var members = findClientsSocket(io, data.id, groupChatNamespace);
+
+            joinRoom(socket, data);
+
+            if (members.length > 0) {
+                //notify client to update member list
+                var usernames = [socket.username];
+                members.forEach(function(item) {
+                    usernames.push(item.username);
+                });
+
+                groupchat.in(data.id).emit('members', {
+                    id: data.id,
+                    users: usernames
+                });
+            }
+        });
+
+        // Handle the sending of messages
+        socket.on('msg', function(data) {
+            console.log('group msg');
+            // When the server receives a message, it sends it to the other person in the room.
+            // socket.broadcast.to(socket.room).emit('receive', { msg: data.msg, user: data.user, img: data.img });
+            groupchat.in(socket.room).emit('receive', { msg: data.msg, user: data.user, img: data.img });
+        });
+
+        // Somebody left the chat
+        socket.on('disconnect', function() {
+            console.log('group disconnect');
+            // leave the room
+            // socket.leave(socket.room);
+
+            //get member list already in the room
+            var members = findClientsSocket(io, socket.username, groupChatNamespace);
+            var usernames = [];
+            members.forEach(function(item) {
+                if (item.username === socket.username) {
+                    return;
+                }
+                usernames.push(item.username);
+            });
+
+            groupchat.in(socket.room).emit('someoneLeave', {
+                room: socket.room,
+                user: socket.username,
+                members: usernames
+            });
+        });
+    });
 };
 
 function findClientsSocket(io, roomId, namespace) {
@@ -112,4 +174,16 @@ function findClientsSocket(io, roomId, namespace) {
         }
     }
     return res;
+}
+
+//bind username, room to socket
+//add socket to room
+function joinRoom(socket, data) {
+    // Use the socket object to store data. Each client gets
+    // their own unique socket object
+    socket.username = data.username;
+    socket.room = data.id;
+
+    // Add the client to the room
+    socket.join(data.id);
 }
