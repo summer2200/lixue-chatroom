@@ -8,6 +8,7 @@ var gravatar = require('gravatar'),
     assert = require('assert');
 var UserItem = require('./models/userItem');
 var GroupItem = require('./models/groupItem');
+var ChatItem = require('./models/chatItem');
 var passport = require('passport');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -162,6 +163,11 @@ module.exports = function(app, io) {
 
 
     app.get('/p2p-chat/:friendName', function(req, res) {
+        var chatItem = new ChatItem();
+        chatItem.owner = req.cookies.username;
+        chatItem.ownerId = req.cookies.userId;
+        chatItem.to = req.params.friendName;
+        chatItem.save();
         res.render('p2pChat', {friend:{name:req.params.friendName}});
     });
 
