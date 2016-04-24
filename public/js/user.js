@@ -68,7 +68,8 @@ $(function() {
     function drewSearchResult(data){
         $('#searchResults').empty();
         if(data.length == 0){
-            $('#searchResults').text('no result find');
+            // $('#searchResults').text('no result find');
+            $('#searchResults').append('<span class="noresult col-xs-12"><h4>No such user name.</h4></span>');
         }
         data.forEach(function(user){
             var li = '<li class="list-group-item" id='+user._id+' onclick="addFriend(\''+user._id+'\',\''+user.name+'\',\''+user.email+'\')">'+ user.name+'<span class="glyphicon glyphicon-plus pull-right"></span></li>';

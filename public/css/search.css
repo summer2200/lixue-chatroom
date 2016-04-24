@@ -1,6 +1,23 @@
 #searchResults{
     margin-top: 20px;
 }
+
+@media (max-width: 420px) {
+	#searchResults{
+    margin-top: 0;
+}
+}
 #searchResults li{
     cursor: pointer;
+}
+.searchbox {
+	text-align: center;
+}
+.noresult {
+	height:50px;
+	border:1px;
+	border-radius: 5px;
+	border-style: dashed;
+	text-align: center;
+	color: #999d9c ;
 }

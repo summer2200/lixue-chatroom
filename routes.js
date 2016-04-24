@@ -133,7 +133,7 @@ module.exports = function(app, io) {
 
     app.get('/personal-page', function(req, res) {
         var now = new Date();
-        var date = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+        var date = dateFormat(now, "dddd h:MM TT");
         console.log("Cookies: ", req.cookies);
         res.render('personalPage', { userName: req.cookies.username, date: date});
     });

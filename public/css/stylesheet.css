@@ -37,6 +37,20 @@ body {
     font-weight: bold;
     color: white;
 }
+@media (max-width: 750px) {
+    .homebanner h1 {
+        font-size:22px;
+        font-family: 'Open Sans Condensed', serif;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+} 
+@media (max-width: 300px) {
+    .homebanner h1 {
+        font-size:30px;
+    }
+} 
+
 
 .homebannertext span {
     color: #d6441b;
@@ -707,4 +721,40 @@ footer {
 }
 .gotosignin {
     padding-left: 0;
+}
+.datetime {
+    text-align: center;
+}
+.logoutbtn {
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+@media (max-width: 420px) {
+     .datetime {
+        display: none;
+     }
+ }
+ .panel-heading {
+    min-height: 40px;
+ }
+
+ .panel-body {
+    margin-top: 30px;
+ }
+@media (max-width: 420px) {
+     .home h2 {
+        font-size: 20px;
+ }
+}
+.searchfriend {
+    text-align: center;
+}
+.search
+.page-header {
+    background-color: #f6f5ec;
+    margin-top: 0;
+}
+.search h4 {
+    margin-top: 0;
+    padding-top: 10px;
 }
