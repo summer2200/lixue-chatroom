@@ -24,7 +24,7 @@ module.exports = function(app, io) {
 
     // Make the files in the public folder available to the world
     app.use(express.static(__dirname + '/public'));
-    //font-awesomeidoes not contain some fonts, so use the bootstrap fonts 
+    //font-awesomeidoes not contain some fonts, so use the bootstrap fonts
     app.use('/fonts', express.static(__dirname + '/bower_components/bootstrap/fonts'));
     app.use('/bower_components', express.static(__dirname + '/bower_components'));
     app.use(express.query());
@@ -35,6 +35,8 @@ module.exports = function(app, io) {
     }));
 
     app.use(session({ resave: true, saveUninitialized: true, secret: 'keyboard cat', cookie: {maxAge: 60000} }));
+
+
 
     app.use(expressLayouts);
 
@@ -55,4 +57,18 @@ module.exports = function(app, io) {
     app.use(cookieParser());
     app.use(dateFormat);
 
+    //登录拦截器
+    app.use(function (req, res, next) {
+        var url = req.originalUrl;
+        if(!req.cookies.username){
+            if (!(url == "/sign-in" || url =='/sign-up' || url =='/')){
+                return res.redirect("/sign-in");
+            }else{
+                next();
+            }
+        }else{
+            next();
+        }
+
+    });
 };

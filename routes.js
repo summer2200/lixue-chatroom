@@ -8,6 +8,7 @@ var gravatar = require('gravatar'),
     assert = require('assert');
 var UserItem = require('./models/userItem');
 var GroupItem = require('./models/groupItem');
+var ChatItem = require('./models/chatItem');
 var passport = require('passport');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -131,6 +132,20 @@ module.exports = function(app, io) {
         });
     });
 
+    app.post('/my-chatlist', function(req, res){
+        var currentName = req.cookies.username;
+        var currentId = req.cookies.userId;
+        // currentName = 'zhang'
+        if(currentName === undefined) {
+            res.json('sign-in');
+            return;
+        }
+        ChatItem.find({owner: currentName, ownerId: currentId}, function(err, result){
+
+            res.status(200).json(result);
+        });
+    });
+
     app.get('/personal-page', function(req, res) {
         var now = new Date();
         var date = dateFormat(now, "dddd h:MM TT");
@@ -162,6 +177,11 @@ module.exports = function(app, io) {
 
 
     app.get('/p2p-chat/:friendName', function(req, res) {
+        var chatItem = new ChatItem();
+        chatItem.owner = req.cookies.username;
+        chatItem.ownerId = req.cookies.userId;
+        chatItem.to = req.params.friendName;
+        chatItem.save();
         res.render('p2pChat', {friend:{name:req.params.friendName}});
     });
 
@@ -188,6 +208,10 @@ module.exports = function(app, io) {
     app.get('/logout', function(req, res) {
         var name = req.cookies.username;
         console.log("LOGGIN OUT " + name);
+        // delete req.cookies.username;
+        // delete req.cookies.userId;
+        res.clearCookie('username');
+        res.clearCookie('userId');
         req.logout();
         res.redirect('/');
     });

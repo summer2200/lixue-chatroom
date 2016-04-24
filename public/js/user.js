@@ -129,3 +129,15 @@ function getMyFriends(callback){
         }
     });
 }
+
+function getMyChatList(callback){
+    $.post('/my-chatlist', function(data){
+
+        if(data == 'sign-in'){
+            alert('you are not sigin, please sign first');
+            window.location.href = '/sign-in';
+        }else{
+            callback(data);
+        }
+    });
+}
