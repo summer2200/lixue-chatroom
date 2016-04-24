@@ -188,6 +188,10 @@ module.exports = function(app, io) {
     app.get('/logout', function(req, res) {
         var name = req.cookies.username;
         console.log("LOGGIN OUT " + name);
+        // delete req.cookies.username;
+        // delete req.cookies.userId;
+        res.clearCookie('username');
+        res.clearCookie('userId');
         req.logout();
         res.redirect('/');
     });
