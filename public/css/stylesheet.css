@@ -37,20 +37,21 @@ body {
     font-weight: bold;
     color: white;
 }
+
 @media (max-width: 750px) {
     .homebanner h1 {
-        font-size:22px;
+        font-size: 22px;
         font-family: 'Open Sans Condensed', serif;
         font-weight: bold;
         margin-top: 20px;
     }
-} 
+}
+
 @media (max-width: 300px) {
     .homebanner h1 {
-        font-size:30px;
+        font-size: 30px;
     }
-} 
-
+}
 
 .homebannertext span {
     color: #d6441b;
@@ -111,6 +112,12 @@ body {
     font-family: 'Open Sans Condensed';
     font-weight: normal;
     color: white;
+}
+
+@media (min-width: 420px) {
+    .node #chat {
+        margin-top: 100px;
+    }
 }
 
 #nodelogo {
@@ -481,6 +488,7 @@ body {
     overflow: hidden;
 }
 
+
 /* ------ Chat Screen ------ */
 
 .image {
@@ -580,7 +588,9 @@ body {
     padding-top: 4px;
 }
 
+
 /* ------------ group chat styles ------------ */
+
 .group-chat header.banner {
     margin-bottom: 20px;
 }
@@ -593,6 +603,7 @@ body {
 .group-chat .group-member-list .member {
     margin-top: 10px;
 }
+
 .group-chat .group-member-list .member-name {
     margin-top: 5%;
     font-size: 20px;
@@ -602,6 +613,7 @@ body {
     height: 50px;
     weight: 50px;
 }
+
 
 /* ------------ Footer styles ------------ */
 
@@ -740,48 +752,70 @@ footer {
 #homelogo {
     margin-top: 13px;
 }
+
+@media (min-width: 420px) {
+    #homelogo {
+        margin-left: 20px;
+    }
+}
+@media (max-width: 420px) {
+    .homesection
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
 .gotosignin {
     padding-left: 0;
 }
+
 .datetime {
     text-align: center;
 }
+
 .logoutbtn {
     margin-top: -8px;
     margin-bottom: 20px;
 }
-@media (max-width: 420px) {
-     .datetime {
-        display: none;
-     }
- }
- .panel-heading {
-    min-height: 40px;
- }
 
- .panel-body {
-    margin-top: 30px;
- }
 @media (max-width: 420px) {
-     .home h2 {
-        font-size: 20px;
- }
+    .datetime {
+        display: none;
+    }
 }
+
+.panel-heading {
+    min-height: 40px;
+}
+
+.panel-body {
+    margin-top: 30px;
+}
+
+@media (max-width: 420px) {
+    .home h2 {
+        font-size: 20px;
+    }
+}
+
 .searchfriend {
     text-align: center;
 }
-.search
-.page-header {
+
+.search .page-header {
     background-color: #f6f5ec;
     margin-top: 0;
 }
+
 .search h4 {
     margin-top: 0;
     padding-top: 10px;
 }
+
 .tab-pane {
-    min-height:450px;
+    min-height: 450px;
 }
+
 .label-success {
-    margin-left: 8px;                    
+    margin-left: 8px;
 }
