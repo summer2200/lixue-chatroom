@@ -492,8 +492,8 @@ body {
 /* ------ Chat Screen ------ */
 
 .image {
+    display: inline-block;
     clear: both;
-    float: left;
     height: 160px;
     width: 80px;
     text-align: center;
@@ -501,7 +501,6 @@ body {
 }
 
 .image img {
-    float: left;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -523,13 +522,11 @@ body {
 
 .me {
     clear: both;
-    float: left;
     margin-bottom: 10px;
 }
 
 .you {
     clear: both;
-    float: right;
     margin-bottom: 10px;
 }
 
@@ -541,7 +538,7 @@ body {
     text-align: left;
     float: left;
     display: inline-block;
-    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 30px;
     padding: 25px 34px;
     min-width: 160px;
@@ -559,7 +556,7 @@ body {
     text-align: left;
     float: left;
     display: inline-block;
-    margin-right: 20px;
+    margin-left: 20px;
     margin-bottom: 30px;
     padding: 25px 34px;
     min-width: 160px;

@@ -124,35 +124,39 @@ $(function() {
     // Function that creates a new chat message
     function createChatMessage(msg, user, imgg, now) {
 
-        var direction = '';
         var who = '';
+        var li;
 
         if (user === currentUser.name) {
-            direction = 'pull-right';
             who = 'me';
             imgg = '/img/male.png';
+            li = $(
+                '<li class="' + who + ' pull-right"' +
+                '>' +
+                '<p></p>' +
+                '<div class="image">' +
+                '<img src=' + imgg + ' />' +
+                '<b>me</b>' +
+                '<i class="timesent" data-time=' + now + '></i> ' +
+                '</div>' +
+                '</li>');
         } else {
-            direction = 'pull-left';
             who = 'you';
             imgg = '/img/female.png';
+            li = $(
+                '<li class=' + who + '>' +
+                '<div class="image pull-left">' +
+                '<img src=' + imgg + ' />' +
+                '<b></b>' +
+                '<i class="timesent" data-time=' + now + '></i> ' +
+                '</div>' +
+                '<p></p>' +
+                '</li>');
+            li.find('b').text(user);
         }
-
-        //TODO chat update image
-
-
-        var li = $(
-            '<li class=' + who + '>' +
-            '<div class="image">' +
-            '<img src=' + imgg + ' />' +
-            '<b></b>' +
-            '<i class="timesent" data-time=' + now + '></i> ' +
-            '</div>' +
-            '<p></p>' +
-            '</li>');
 
         // use the 'text' method to escape malicious user input
         li.find('p').text(msg);
-        li.find('b').text(user);
 
         chats.append(li);
 
