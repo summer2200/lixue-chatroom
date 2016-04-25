@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-
-<!--
-	This file is rendered by express.js, when the rurl /chat/123456 is visited in a browser.
-	It includes jQuery, socket.io.js (it is automatically served by the socket.io library),
-	and a few more JavaScript files that you should check out.
--->
-
-<html>
-
-<head>
-
-	<title>Private chat room | Tutorialzine Demo</title>
-
-	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-
-
-</head>
-
-<body>
 
 	<header class="banner">
 
 		<h1 class="bannertext">
-			<a href="http://tutorialzine.com/2014/03/nodejs-private-webchat/" id="logo">Tutorial<span>zine</span>: NODE.JS CHAT TUTORIAL</a>
 		</h1>
 
 	</header>
@@ -31,7 +9,7 @@
 
 	<section class="section">
 
-		<!-- These elements are displayed as white info cards in the middle of the screen -->
+		These elements are displayed as white info cards in the middle of the screen
 
 		<div class="connected">
 
@@ -113,28 +91,8 @@
 
 			<ul class="chats">
 				<!-- The chat messages will go here -->
-			</ul>
+	</ul> 
 
 		</div>
 
-	</section>
-
-	<footer>
-
-		<form id="chatform">
-
-			<textarea id="message" placeholder="Write something.."></textarea>
-			<input type="submit" id="submit" value="SEND"/>
-
-		</form>
-
-	</footer>
-
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="../js/chat.js"></script>
-
-</body>
-
-</html>
+	</section> 

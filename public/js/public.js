@@ -53,3 +53,10 @@ socket.on('p2pchat', function(data){
       drawMyFriendsList();
   }
 });
+
+
+  var url = window.location.pathname;
+  if (!(url === '/sign-up' || url === '/')) {
+      $(".homebanner #signIn").hide();
+  }
+
