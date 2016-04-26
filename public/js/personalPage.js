@@ -98,6 +98,18 @@ $(function() {
         //显示正在对谁说话
         // showSayTo();
     });
+
+
+    socket.on('new-friend', function(data) {
+        if (data.friendName === $.cookie('username')) {
+            var sys = '<div style="color:#f00">系统(' + now() + '):' + '用户 ' + data.user + ' 添加了你为好友！</div>';
+            toastr.info(sys);
+            if (pannel === '#pane2') {
+                drawMyFriendsList(onlineUsers);
+            }
+        }
+
+    });
 });
 
 function startP2Pchat(e, id, name, isOnline) {

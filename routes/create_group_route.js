@@ -46,15 +46,29 @@ module.exports = function(app) {
     app.post('/my-groups', function(req, res){
         var currentName = req.cookies.username;
         var userId = req.cookies.userId;
-
+        var myGroups = [];
         // currentName = 'zhang'
         if(currentName === undefined) {
             res.json('sign-in');
             return;
         }
-        GroupItem.find({owner: currentName, ownerId: userId}, function(err, results){
+        GroupItem.find({}, function(err, results){
+            results.forEach(function(item) {
+                if (item.ownerId == userId) {
+                    //get owned group
+                    myGroups.push(item);
+                } else if (item.members.some(function(member) {
+                    //get joined group
+                    return member.id == userId;
+                })) {
+                    myGroups.push(item);
+                }
+            });
             res.status(200).json(results);
         });
+        // GroupItem.find({owner: currentName, ownerId: userId}, function(err, results){
+        //     res.status(200).json(results);
+        // });
     });
     // app.post('/add-memeber', function(req, res){
     //     var userInfo = req.body.userInfo;

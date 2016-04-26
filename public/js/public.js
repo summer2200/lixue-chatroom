@@ -54,13 +54,6 @@ socket.on('p2pchat', function(data){
   }
 });
 
-socket.on('new-friend', function(data) {
-  if (data.friendName === $.cookie('username')) {
-    var sys = '<div style="color:#f00">系统(' + now() + '):' + '用户 ' + data.user + ' 添加了你为好友！</div>';
-    toastr.info(sys);
-  }
-});
-
   var url = window.location.pathname;
   if (!(url === '/sign-up' || url === '/')) {
       $(".homebanner #signIn").hide();
