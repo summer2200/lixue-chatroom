@@ -66,9 +66,8 @@ module.exports = function(app, io) {
 
     app.post('/add-friend', function(req, res){
         var userInfo = req.body.userInfo;
-        // UserItem.update({name: name}, {friends: []}, function(err, numberAffected, rawResponse){
 
-        // })
+        var currentUser = {};
         var currentName = req.cookies.username;
         console.log(currentName);
         // currentName = 'zhang'
@@ -80,14 +79,32 @@ module.exports = function(app, io) {
             if(typeof(result['friends']) == 'undefined'){
                 result.friends = [];
             }
+            currentUser.name = result.name;
+            currentUser.id = result._id;
+            currentUser.email = result.email;
             // console.log(userInfo)
             result.friends.push(userInfo);
-            result.save(function(err){
-                if(!err){
-                    res.status(200).json('success');
+            result.save(function(err) {
+                if (err) {
+                    res.sendStatus(500);
+                    return;
                 }
+                UserItem.findOne({name: userInfo.name}, function(err, result) {
+                    if(typeof(result['friends']) == 'undefined') {
+                        result.friends = [];
+                    }
+                    result.friends.push(currentUser);
+                    result.save(function(err) {
+                        if (err) {
+                            res.sendStatus(500);
+                            return;
+                        }
+                        res.status(200).json('success');
+                    });
+                });
             });
         });
+
     });
 
     app.delete('/delete-friend', function(req, res){
