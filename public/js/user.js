@@ -92,6 +92,9 @@ function addFriend(id, name, email){
         }else{
             $('#'+id).remove();
             alert(name+' is your friend now !');
+            if (socket) {
+                socket.emit('new-friend', {friendId: id, friendName: name, user:$.cookie('username'), id:$.cookie('userId')});
+            }
             window.location.href = '/personal-page#pane2?name='+name;
         }
     });

@@ -35,6 +35,11 @@ module.exports = function(app, io) {
                 socket.broadcast.emit('offline', {users: users, user: socket.name});
               }
         });
+
+        socket.on('new-friend', function(data){
+            io.sockets.emit('new-friend', data);
+            
+        });
     });
 
     //use namespace for modularity between user socket and chat socket
