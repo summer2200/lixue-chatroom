@@ -25,14 +25,16 @@ $(function() {
     $("#friendsTab").click(function() {
         drawMyFriendsList(onlineUsers);
     });
-
+    //recently chat records
     function drawRecentlyList(){
         $('#pane1 ul').empty();
         getMyChatList(function(results){
             results.forEach(function(result){
-                console.log(result)
+                var time = result.created_at;
+                var ago = moment(time).fromNow(); 
+                // console.log(ago);
                 // var deleteicon = '<span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteGroupChart(\'' + result._id + '\', \'' + result.to + '\')"></span>';
-                $("#pane1 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + result.to + '</span>'+''+'</li>');
+                $("#pane1 ul").append('<li class="list-group-item" id="' + result._id + '"><span class="tab">' + result.to + '</span><span class="recentTime">chat at ' + ago + '</span>'+''+'</li>');
             });
         });
     }
